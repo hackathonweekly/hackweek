@@ -2,13 +2,23 @@
 
 import React from 'react';
 import { motion } from "framer-motion";
-import { Award, Calendar, Globe2, Laptop, LucideIcon, MessageSquare, Trophy } from "lucide-react";
+import { Award, Calendar, Code2, Globe2, Laptop, LucideIcon, MessageSquare, Trophy, Users } from "lucide-react";
 
 const features = [
   {
     icon: Calendar,
-    title: "多样化活动",
-    description: "从AI到机器人，从交流会到创客咖啡"
+    title: "周周黑客松",
+    description: "每周末固定时间，线上/线下结合的创客活动"
+  },
+  {
+    icon: Users,
+    title: "创客社区",
+    description: "连接独立开发者、创业者和上班族，共同学习和成长"
+  },
+  {
+    icon: Code2,
+    title: "技术驱动",
+    description: "从AI到机器人，探索前沿技术，实现创新想法"
   },
   {
     icon: Globe2,
@@ -16,24 +26,14 @@ const features = [
     description: "北京、上海、深圳、广州、杭州定期举办"
   },
   {
-    icon: Laptop,
-    title: "共学共创",
-    description: "轻松愉快的氛围，专注实现想法"
-  },
-  {
-    icon: MessageSquare,
-    title: "创客社区",
-    description: "连接独立开发者，创业者，上班族"
-  },
-  {
     icon: Trophy,
     title: "Demo Day",
-    description: "每月展示日，分享创造的喜悦"
+    description: "每月展示日，分享创造的喜悦，展示最新成果"
   },
   {
     icon: Award,
     title: "开源精神",
-    description: "公益开源，激发无限可能"
+    description: "倡导开源协作，共同打造更好的产品"
   }
 ];
 
@@ -84,11 +84,11 @@ const FeaturesSection: React.FC = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-                活动特色
+                周周黑客松
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              我们为参与者提供全方位支持，让你专注于创造和实现想法
+              一个面向独立开发者的创新社区，让每个人都能找到志同道合的伙伴，一起探索和创造
             </p>
           </motion.div>
 

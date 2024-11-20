@@ -3,8 +3,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Lightbulb, Rocket, Users, Code, Target } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight, Lightbulb, Rocket, Code, Target } from "lucide-react";
 
 const activities = [
   {
@@ -128,7 +127,7 @@ const ActivitiesSection: React.FC = () => {
               className="bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 text-white px-8 h-12 rounded-full group"
             >
               <span className="flex items-center">
-                立即报名参加
+                加入社区
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </Button>

@@ -10,7 +10,7 @@ export default function Terms() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">1. 服务说明</h2>
-          <p>HackathonWeekly（以下简称"我们"）是一个公益开源的极客社区，通过组织黑客松活动，帮助创作者实现想法。使用我们的服务即表示您同意以下条款。</p>
+          <p>HackathonWeekly（以下简称&ldquo;我们&rdquo;）是一个公益开源的极客社区，通过组织黑客松活动，帮助创作者实现想法。使用我们的服务即表示您同意以下条款。</p>
         </section>
 
         <section className="mb-8">

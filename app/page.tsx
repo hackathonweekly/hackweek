@@ -1,6 +1,5 @@
 import HeroSection from './components/hero-section';
 import IntroSection from './components/intro-section';
-import FeaturesSection from './components/features-section';
 import ActivitiesSection from './components/activities-section';
 import StatsSection from './components/stats-section';
 import TimelineSection from './components/timeline-section';
@@ -14,11 +13,8 @@ export default function Home() {
       <section id="hero">
         <HeroSection />
       </section>
-      <section id="intro" className="py-20">
+      <section id="intro" className="py-20 bg-gray-50">
         <IntroSection />
-      </section>
-      <section id="features" className="py-20 bg-gray-50">
-        <FeaturesSection />
       </section>
       <section id="activities" className="py-20">
         <ActivitiesSection />

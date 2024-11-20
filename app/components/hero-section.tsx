@@ -71,7 +71,7 @@ export default function HeroSection() {
                   className="bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 text-white px-6 md:px-8 h-11 md:h-12 rounded-full group"
                 >
                   <span className="flex items-center">
-                    立即报名
+                     加入社区
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Button>

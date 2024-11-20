@@ -1,12 +1,15 @@
 {
-  "name": "hackathon-weekly",
+  "name": "landing_page",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages@1",
+    "preview": "npm run pages:build && wrangler pages dev .vercel/output/static",
+    "deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static --commit-dirty=true"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -67,6 +70,10 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.2.2",
     "vaul": "^0.9.9",
+    "wrangler": "^3.88.0",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.5"
   }
 }

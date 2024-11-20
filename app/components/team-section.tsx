@@ -122,7 +122,7 @@ const teamMembers = [
     avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=xiaosa&backgroundColor=d5f0ff&gender=male",
     tags: ["架构师", "技术布道", "数字化"],
     location: "上海",
-    bio: "资深架构师/布道师，专注于制造、教育、医疗500强企业的数字化转型。致力于将大模型应用加速器等创新技术解决方案转化为实际项目成果。擅长为开发者提供指导，简化技术应用，推动持续创新"
+    bio: "资深架构师/布道师，专注于制造、教育、医疗500强企业的数字化转型。致力于将大模型应用加速器等创新技术解决方案转化为实际项目成果。"
   },
   {
     name: "兵书Ada",
@@ -130,7 +130,7 @@ const teamMembers = [
     avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=ada&backgroundColor=ffd5eb&gender=female",
     tags: ["媒体", "创意", "社区"],
     location: "上海",
-    bio: "之前在 X ACADEMY 做过新媒体主编，擅长写推文，目前是 706 媒体实验室主理人~来周周黑客松和极客们碰撞创意和想法！"
+    bio: "之前在 X ACADEMY 做过新媒体主编，擅长写推文，目前是 706 媒体实验室主理人"
   }
 ];
 
@@ -150,7 +150,7 @@ export default function TeamSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
               创造者社区
             </span>
           </h2>
