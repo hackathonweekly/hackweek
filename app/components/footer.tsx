@@ -21,7 +21,6 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-purple-600 transition-colors"
             >
-              {/* <Image src="/feishu-logo.png" alt="Feishu" width={16} height={16} /> */}
               飞书协作文档
             </a>
           </div>
@@ -71,10 +70,20 @@ export default function Footer() {
         
         <div className="mt-8 pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
-            <p>&copy; {new Date().getFullYear()} HackathonWeekly. All rights reserved.</p>
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+              <p>&copy; {new Date().getFullYear()} HackathonWeekly. All rights reserved.</p>
+              <a 
+                href="https://beian.miit.gov.cn/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-purple-600 transition-colors"
+              >
+                琼ICP备2024040807号-1
+              </a>
+            </div>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-purple-600 transition-colors">隐私政策</a>
-              <a href="#" className="hover:text-purple-600 transition-colors">服务条款</a>
+              <a href="/privacy" className="hover:text-purple-600 transition-colors">隐私政策</a>
+              <a href="/terms" className="hover:text-purple-600 transition-colors">服务条款</a>
             </div>
           </div>
         </div>
