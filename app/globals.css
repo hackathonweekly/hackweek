@@ -81,3 +81,70 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Terminal-style scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b;
+  border-left: 1px solid #27272a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Smooth section transitions */
+section {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Terminal selection color */
+::selection {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+/* Terminal text cursor effect */
+.terminal-cursor::after {
+  content: '_';
+  animation: cursor 1s infinite step-end;
+}
+
+@keyframes cursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Terminal window styles */
+.terminal-window {
+  @apply bg-zinc-900/80 backdrop-blur-sm border border-emerald-500/20 rounded-lg overflow-hidden;
+}
+
+.terminal-header {
+  @apply flex items-center gap-2 px-4 py-2 bg-zinc-800/80 border-b border-emerald-500/20;
+}
+
+.terminal-body {
+  @apply p-6;
+}
+
+.terminal-text {
+  @apply font-mono text-emerald-500;
+}
+
+.terminal-prompt {
+  @apply text-zinc-500;
+}
