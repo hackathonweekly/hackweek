@@ -228,7 +228,12 @@ export default function TeamSection() {
                       alt={member.name}
                       width={80}
                       height={80}
-                      className="rounded-lg group-hover:scale-102 transition-transform duration-200"
+                      className="rounded-lg group-hover:scale-105 transition-transform duration-200"
+                      onError={(e) => {
+                        // 如果头像加载失败，使用备用头像
+                        const target = e.target as HTMLImageElement;
+                        target.src = "https://api.dicebear.com/7.x/notionists/svg?seed=fallback";
+                      }}
                     />
                   </div>
                   

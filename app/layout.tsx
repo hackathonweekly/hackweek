@@ -1,11 +1,12 @@
 import './globals.css';
 import './styles/animations.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import Header from './components/header';
 import Footer from './components/footer';
 import BackToTop from './components/back-to-top';
 import ScrollProgress from './components/scroll-progress';
+import { baseMetadata, baseViewport } from './metadata';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -14,6 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  ...baseMetadata,
+  metadataBase: new URL('https://hackathonweekly.cn'),
   title: 'HackathonWeekly | 周周黑客松',
   description: '花1周时间，创造1个最小可行产品，解决1个生活痛点',
   keywords: 'hackathon, 黑客松, MVP, 产品开发, 创新, 编程, AI, 人工智能',
@@ -35,9 +38,10 @@ export const metadata: Metadata = {
     icon: '/logo.png',
     apple: '/apple-icon.png',
   },
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
-  themeColor: '#4F46E5',
 };
+
+// 新的 viewport 配置
+export const viewport: Viewport = baseViewport;
 
 export default function RootLayout({
   children,
