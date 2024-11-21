@@ -93,7 +93,7 @@ ActivityCard.displayName = 'ActivityCard';
 
 const ActivitiesSection: React.FC = () => {
   return (
-    <section className="py-12 relative overflow-hidden">
+    <section className="py-16 md:py-24 relative overflow-hidden">
       {/* Background gradients */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-[350px] h-[350px] bg-purple-500/10 rounded-full blur-3xl" />

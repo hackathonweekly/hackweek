@@ -74,7 +74,7 @@ FeatureCard.displayName = 'FeatureCard';
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section className="py-12 relative overflow-hidden">
+    <section className="py-16 md:py-24 relative overflow-hidden">
       {/* Background gradients */}
       <div className="absolute inset-0">
         <div className="absolute top-40 left-20 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-3xl" />

@@ -10,14 +10,33 @@ import ScrollProgress from './components/scroll-progress';
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap', // 优化字体加载
 });
 
 export const metadata: Metadata = {
   title: 'HackathonWeekly | 周周黑客松',
   description: '花1周时间，创造1个最小可行产品，解决1个生活痛点',
+  keywords: 'hackathon, 黑客松, MVP, 产品开发, 创新, 编程, AI, 人工智能',
+  authors: [{ name: 'HackathonWeekly Team' }],
+  openGraph: {
+    title: 'HackathonWeekly | 周周黑客松',
+    description: '花1周时间，创造1个最小可行产品，解决1个生活痛点',
+    images: ['/og-image.png'],
+    locale: 'zh_CN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HackathonWeekly | 周周黑客松',
+    description: '花1周时间，创造1个最小可行产品，解决1个生活痛点',
+    images: ['/og-image.png'],
+  },
   icons: {
     icon: '/logo.png',
+    apple: '/apple-icon.png',
   },
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  themeColor: '#4F46E5',
 };
 
 export default function RootLayout({
@@ -27,10 +46,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh" className={`${inter.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased min-h-screen flex flex-col">
         <Header />
         <ScrollProgress />
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
         <Footer />
         <BackToTop />
       </body>

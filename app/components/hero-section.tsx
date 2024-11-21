@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-background to-background/50 overflow-hidden pt-16 md:pt-0">
+    <section className="min-h-screen relative flex items-center py-16 md:py-24 overflow-hidden">
       {/* Background shapes */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-purple-500/10 rounded-full blur-3xl" />
