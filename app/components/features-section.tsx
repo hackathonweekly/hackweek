@@ -45,27 +45,36 @@ const FeatureCard: React.FC<{
 }> = ({ icon: Icon, title, description, index }) => {
   return (
     <motion.div
-      className="group relative bg-background/50 backdrop-blur-sm border border-purple-500/10 rounded-2xl p-8 hover:border-purple-500/20 transition-colors"
+      className="group relative bg-background/50 backdrop-blur-sm border border-purple-500/10 rounded-2xl p-8 hover:border-purple-500/20 transition-all duration-300"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ 
+        y: -5,
+        boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)",
+      }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="relative">
+      <div className="relative z-10">
         <div className="mb-4 inline-block p-3 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl group-hover:from-purple-500/20 group-hover:to-blue-500/20 transition-colors">
-          <Icon className="h-6 w-6" />
+          <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
         </div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-muted-foreground">{description}</p>
+        <h3 className="text-xl font-semibold mb-2 transition-colors duration-300 group-hover:text-primary">
+          {title}
+        </h3>
+        <p className="text-muted-foreground">
+          {description}
+        </p>
       </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </motion.div>
   );
 };
+FeatureCard.displayName = 'FeatureCard';
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-12 relative overflow-hidden">
       {/* Background gradients */}
       <div className="absolute inset-0">
         <div className="absolute top-40 left-20 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-3xl" />

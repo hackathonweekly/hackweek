@@ -1,13 +1,13 @@
 'use client';
 
-import React from 'react';
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { motion, useAnimation } from "framer-motion";
 import { Users, Code2, Trophy, Star } from "lucide-react";
 
 const stats = [
   {
     icon: Users,
-    value: "1000+",
+    value: "2000+",
     label: "创造者",
     description: "来自全国各地的独立开发者和创业者"
   },
@@ -38,6 +38,27 @@ const StatCard: React.FC<{
   description: string;
   index: number;
 }> = ({ icon: Icon, value, label, description, index }) => {
+  const [count, setCount] = useState(0);
+  const numericValue = parseInt(value.replace(/[^0-9]/g, ''));
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const duration = 2000; // 2秒完成动画
+    const steps = 60; // 60帧
+    const increment = numericValue / steps;
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      setCount(Math.min(Math.floor(currentStep * increment), numericValue));
+      if (currentStep >= steps) {
+        clearInterval(timer);
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, [numericValue]);
+
   return (
     <motion.div
       className="relative group"
@@ -45,15 +66,16 @@ const StatCard: React.FC<{
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -5 }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="relative bg-background/50 backdrop-blur-sm border border-purple-500/10 rounded-2xl p-6 hover:border-purple-500/20 transition-colors text-center">
+      <div className="relative bg-background/50 backdrop-blur-sm border border-purple-500/10 rounded-2xl p-6 hover:border-purple-500/20 transition-all duration-300 hover:shadow-lg">
         <div className="mb-4 inline-block p-3 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl group-hover:from-purple-500/20 group-hover:to-blue-500/20 transition-colors">
           <Icon className="h-6 w-6" />
         </div>
         <div className="space-y-1">
           <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-            {value}
+            {count}{value.includes('+') ? '+' : ''}
           </div>
           <div className="font-medium">{label}</div>
           <div className="text-sm text-muted-foreground">{description}</div>
@@ -65,7 +87,7 @@ const StatCard: React.FC<{
 
 const StatsSection: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-12 relative overflow-hidden">
       {/* Background gradients */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-[350px] h-[350px] bg-purple-500/10 rounded-full blur-3xl" />

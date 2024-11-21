@@ -10,7 +10,7 @@ const teamMembers = [
     avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=jackie&backgroundColor=ffdfbf&gender=male",
     tags: ["独立开发者", "INTJ", "技术"],
     location: "深圳",
-    bio: "独立开发者，INTJ"
+    bio: "热衷于探索新技术，创造有趣的产品。爱与自由，毕生所求；学与创造，至死方休"
   },
   {
     name: "伯棠",
@@ -30,7 +30,7 @@ const teamMembers = [
   },
   {
     name: "Summer",
-    role: "深圳主理",
+    role: "深圳主理人",
     avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=botang&backgroundColor=b6e3f4&gender=female",
     tags: ["创业者", "产品", "理想主义"],
     location: "深圳",
@@ -171,6 +171,14 @@ const teamMembers = [
     tags: ["AI产品经理", "黑洞脑"],
     location: "深圳",
     bio: "跟有趣的人做有意义的事"
+  },
+  {
+    name: "jinwon",
+    role: "深圳主理人",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=jinwon&backgroundColor=d5ffea&gender=male",
+    tags: ["NLP算法", "AI教育", "第一原理"],
+    location: "深圳",
+    bio: "致力于打造改变世界的AI教育产品"
   }
 ];
 

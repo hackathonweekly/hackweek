@@ -52,7 +52,7 @@ const FeatureCard: React.FC<{
 
 const IntroSection: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-12 relative overflow-hidden">
       {/* Background gradients */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-[300px] h-[300px] bg-purple-500/10 rounded-full blur-3xl" />

@@ -24,7 +24,7 @@ const partnerLogos = [
 
 export default function PartnersSection() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-12 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

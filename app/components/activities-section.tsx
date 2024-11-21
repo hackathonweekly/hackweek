@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Lightbulb, Rocket, Code, Target } from "lucide-react";
@@ -38,42 +38,62 @@ const ActivityCard: React.FC<{
   description: string;
   time: string;
   index: number;
-}> = ({ icon: Icon, title, description, time, index }) => {
+}> = React.memo(({ icon: Icon, title, description, time, index }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <motion.div
-      className="relative"
+      className="relative cursor-pointer"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      onClick={() => setIsExpanded(!isExpanded)}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
     >
       {/* Connection line */}
       {index < activities.length - 1 && (
-        <div className="absolute top-8 left-8 w-full h-0.5 bg-gradient-to-r from-purple-500/20 to-blue-500/20" />
+        <div className="absolute left-6 top-16 w-0.5 h-16 bg-gradient-to-b from-purple-500/20 to-transparent" />
       )}
-      
-      <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-        <div className="relative bg-background/50 backdrop-blur-sm border border-purple-500/10 rounded-2xl p-6 hover:border-purple-500/20 transition-colors">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-2 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl group-hover:from-purple-500/20 group-hover:to-blue-500/20 transition-colors">
-              <Icon className="h-6 w-6" />
-            </div>
-            <div>
-              <h3 className="font-semibold">{title}</h3>
-              <p className="text-sm text-muted-foreground">{time}</p>
-            </div>
+
+      <div className="relative bg-background/50 backdrop-blur-sm border border-purple-500/10 rounded-2xl p-6 hover:border-purple-500/20 transition-all duration-300 hover:shadow-lg">
+        <div className="flex items-start gap-4">
+          <div className="p-2 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl">
+            <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
           </div>
-          <p className="text-muted-foreground">{description}</p>
+          <div className="flex-1">
+            <div className="flex items-center justify-between mb-1">
+              <h3 className="text-lg font-semibold">{title}</h3>
+              <span className="text-sm text-muted-foreground bg-secondary/50 px-2 py-0.5 rounded-full">
+                {time}
+              </span>
+            </div>
+            <p className="text-muted-foreground">{description}</p>
+            
+            <motion.div
+              initial={false}
+              animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
+              className="overflow-hidden mt-4"
+            >
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <p>• 活动时长：2-4小时</p>
+                <p>• 参与人数：5-20人</p>
+                <p>• 活动形式：线上/线下</p>
+                <p>• 参与方式：扫码报名</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </motion.div>
   );
-};
+});
+ActivityCard.displayName = 'ActivityCard';
 
 const ActivitiesSection: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-12 relative overflow-hidden">
       {/* Background gradients */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-[350px] h-[350px] bg-purple-500/10 rounded-full blur-3xl" />

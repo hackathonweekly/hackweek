@@ -94,17 +94,17 @@ export default function HeroSection() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <div className="relative w-full aspect-square max-w-[500px] mx-auto">
+              <div className="relative w-full aspect-square max-w-[400px] mx-auto">
                 {/* Decorative elements */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse" />
                 
                 {/* Logo container */}
-                <div className="relative bg-gradient-to-r from-purple-500/[0.08] to-blue-500/[0.08] rounded-3xl p-8 backdrop-blur-sm border border-white/10">
+                <div className="relative bg-gradient-to-r from-purple-500/[0.08] to-blue-500/[0.08] rounded-3xl p-6 backdrop-blur-sm border border-white/10">
                   <Image
                     src="/purple-logo.png"
                     alt="HackathonWeekly Logo"
-                    width={400}
-                    height={400}
+                    width={320}
+                    height={320}
                     className="w-full h-full object-contain animate-float"
                   />
                   

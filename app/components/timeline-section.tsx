@@ -43,7 +43,7 @@ const timelineEvents = [
 
 export default function TimelineSection() {
   return (
-    <section className="py-24 bg-secondary/50">
+    <section className="py-12 bg-secondary/50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,10 @@ export default function TimelineSection() {
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-border" />
+          {/* 在大屏幕上显示的中间线 */}
+          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-border hidden md:block" />
+          {/* 在小屏幕上显示的左侧线 */}
+          <div className="absolute left-4 h-full w-0.5 bg-border md:hidden" />
           
           <div className="space-y-12">
             {timelineEvents.map((event, index) => (
@@ -74,12 +77,21 @@ export default function TimelineSection() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className={`flex items-center ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                }`}
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                } flex-row`}
               >
-                <div className="w-1/2 pr-8 text-right">
-                  <div className={`${index % 2 === 0 ? "text-right" : "text-left"}`}>
-                    <div className="flex items-center justify-end gap-2 mb-1">
+                {/* 移动端布局 */}
+                <div className="md:hidden relative flex items-center justify-center w-8">
+                  <div className="h-4 w-4 rounded-full bg-primary" />
+                </div>
+                
+                <div className={`md:w-1/2 md:pr-8 w-full ${
+                  index % 2 === 0 ? "md:text-right" : "md:text-left"
+                } text-left`}>
+                  <div>
+                    <div className={`flex items-center gap-2 mb-1 ${
+                      index % 2 === 0 ? "md:justify-end" : "md:justify-start"
+                    } justify-start`}>
                       <CalendarDays className="h-4 w-4 text-muted-foreground" />
                       <time className="text-sm text-muted-foreground">{event.date}</time>
                     </div>
@@ -88,11 +100,12 @@ export default function TimelineSection() {
                   </div>
                 </div>
                 
-                <div className="relative flex items-center justify-center w-8">
+                {/* 桌面端中间点 */}
+                <div className="relative items-center justify-center w-8 hidden md:flex">
                   <div className="h-4 w-4 rounded-full bg-primary" />
                 </div>
                 
-                <div className="w-1/2 pl-8" />
+                <div className="w-1/2 pl-8 hidden md:block" />
               </motion.div>
             ))}
           </div>
