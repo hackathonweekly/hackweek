@@ -1,138 +1,149 @@
-"use client";
+'use client';
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2, Rocket } from "lucide-react";
-import Image from "next/image";
+import { Terminal, ArrowRight, Code2 } from "lucide-react";
 
-export default function HeroSection() {
+const commands = [
+  {
+    command: "$ hackathon init --name weekly",
+    output: "Initializing HackathonWeekly environment..."
+  },
+  {
+    command: "$ community status",
+    output: "Active members: 1000+ | Projects: 200+ | Events: 50+"
+  },
+  {
+    command: "$ next event --info",
+    output: "Next hackathon: This weekend | Theme: AI + Open Source"
+  }
+];
+
+const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-background to-background/50 overflow-hidden pt-16 md:pt-0">
-      {/* Background shapes */}
+    <section className="min-h-screen bg-zinc-900 font-mono relative overflow-hidden flex items-center">
+      {/* Terminal background pattern */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-[150px] md:w-[300px] h-[150px] md:h-[300px] bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4px_4px]" />
       </div>
-      
+
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
-            {/* Left content */}
-            <motion.div 
-              className="flex-1 text-center lg:text-left space-y-6 md:space-y-8"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-block"
-              >
-                <div className="text-sm md:text-base bg-primary/10 text-primary rounded-full px-4 py-1 inline-block">
-                  公益开源的极客社区
-                </div>
-              </motion.div>
-
-              <motion.h1 
-                className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tight"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-                  HackathonWeekly
-                </span>
-                <br />
-                <span className="text-foreground mt-2 block">周周黑客松</span>
-              </motion.h1>
-
-              <motion.p 
-                className="text-base md:text-xl text-muted-foreground"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                花1周时间，创造1个最小可行产品
-                <br />
-                解决1个生活痛点，也许就是下1个改变世界的起点
-              </motion.p>
-
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 text-white px-6 md:px-8 h-11 md:h-12 rounded-full group"
-                >
-                  <span className="flex items-center">
-                     加入社区
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Button>
-                
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-purple-500/20 hover:border-purple-500/40 h-11 md:h-12 rounded-full"
-                >
-                  <Code2 className="mr-2 h-4 w-4" />
-                  了解更多
-                </Button>
-              </motion.div>
-            </motion.div>
-
-            {/* Right content - Logo (hidden on mobile) */}
-            <motion.div 
-              className="flex-1 relative hidden lg:block"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-            >
-              <div className="relative w-full aspect-square max-w-[500px] mx-auto">
-                {/* Decorative elements */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse" />
-                
-                {/* Logo container */}
-                <div className="relative bg-gradient-to-r from-purple-500/[0.08] to-blue-500/[0.08] rounded-3xl p-8 backdrop-blur-sm border border-white/10">
-                  <Image
-                    src="/purple-logo.png"
-                    alt="HackathonWeekly Logo"
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-contain animate-float"
-                  />
-                  
-                  {/* Floating badges */}
-                  <motion.div 
-                    className="absolute -top-4 -right-4 bg-white/[0.08] backdrop-blur-sm rounded-full p-4 border border-white/10"
-                    animate={{ y: [-10, 10, -10] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                  >
-                    <Rocket className="w-6 h-6 text-purple-500" />
-                  </motion.div>
-                </div>
+      <div className="container mx-auto px-4 py-20 relative">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Text Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-8"
+          >
+            <div className="space-y-4">
+              <div className="inline-flex items-center px-3 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-md border border-zinc-700/50">
+                <span className="w-2 h-2 rounded-full bg-green-500 mr-2" />
+                v1.0.0 stable
               </div>
-            </motion.div>
-          </div>
+              <h1 className="text-4xl lg:text-5xl font-bold text-white">
+                Hackathon<span className="text-green-500">.weekly()</span>
+              </h1>
+              <p className="text-lg text-zinc-400 max-w-xl">
+                每周末，与开发者一起创造未来。在这里，我们用代码构建梦想，用创新改变世界。
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-green-500 hover:bg-green-600 text-black px-6 py-2 rounded font-mono group"
+              >
+                <span className="flex items-center">
+                  $ join --next-event
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-zinc-800 hover:bg-zinc-700 text-green-500 px-6 py-2 rounded font-mono border border-zinc-700 group"
+              >
+                <span className="flex items-center">
+                  $ learn --more
+                  <Code2 className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </motion.button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4">
+              {["1000+ 开发者", "200+ 项目", "50+ 活动"].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                  className="bg-zinc-800/50 border border-zinc-700/50 rounded p-4 text-center"
+                >
+                  <span className="text-green-500 text-sm font-medium">{stat}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Column - Terminal Window */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="bg-black/50 backdrop-blur-sm border border-zinc-700/50 rounded-lg overflow-hidden">
+              {/* Terminal Header */}
+              <div className="flex items-center justify-between px-4 py-2 bg-zinc-800/50 border-b border-zinc-700/50">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                </div>
+                <div className="text-xs text-zinc-400">hackathon-weekly ~ main</div>
+                <Terminal className="h-4 w-4 text-zinc-400" />
+              </div>
+
+              {/* Terminal Content */}
+              <div className="p-6 space-y-4">
+                {commands.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                    className="space-y-2"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-green-500">❯</span>
+                      <span className="text-white">{item.command}</span>
+                    </div>
+                    <div className="text-zinc-400 pl-6">{item.output}</div>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.7 }}
+                  className="flex items-center gap-2"
+                >
+                  <span className="text-green-500">❯</span>
+                  <span className="w-4 h-4 bg-green-500 animate-pulse" />
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Background Decoration */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-green-700 opacity-20 blur group-hover:opacity-30 transition duration-300" style={{ zIndex: -1 }} />
+          </motion.div>
         </div>
       </div>
-
-      {/* Add keyframes for float animation */}
-      <style jsx global>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
-}
+};
+
+export default HeroSection;

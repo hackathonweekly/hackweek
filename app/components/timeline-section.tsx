@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
 import { motion } from "framer-motion";
-import { CalendarDays } from "lucide-react";
+import { Terminal } from "lucide-react";
 
 const timelineEvents = [
   {
@@ -41,63 +41,90 @@ const timelineEvents = [
   }
 ];
 
-export default function TimelineSection() {
+const TimelineSection = () => {
   return (
-    <section className="py-24 bg-secondary/50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-zinc-900 font-mono relative overflow-hidden">
+      {/* Terminal background pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4px_4px]" />
+      </div>
+
+      <div className="container mx-auto px-4 relative">
+        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-              社区历程
-            </span>
+          <div className="inline-flex items-center px-3 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-md border border-zinc-700/50 mb-4">
+            <span className="w-2 h-2 rounded-full bg-green-500 mr-2" />
+            发展历程
+          </div>
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Timeline<span className="text-green-500">.history()</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            半年时间，从0到1的共创旅程
+          <p className="text-zinc-400 max-w-2xl mx-auto">
+            记录每一个重要的里程碑
           </p>
         </motion.div>
 
-        <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-border" />
-          
-          <div className="space-y-12">
-            {timelineEvents.map((event, index) => (
-              <motion.div
-                key={event.date}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`flex items-center ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                }`}
-              >
-                <div className="w-1/2 pr-8 text-right">
-                  <div className={`${index % 2 === 0 ? "text-right" : "text-left"}`}>
-                    <div className="flex items-center justify-end gap-2 mb-1">
-                      <CalendarDays className="h-4 w-4 text-muted-foreground" />
-                      <time className="text-sm text-muted-foreground">{event.date}</time>
+        {/* Timeline */}
+        <div className="max-w-4xl mx-auto relative">
+          {/* Vertical Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-zinc-700/50" />
+
+          {timelineEvents.map((event, index) => (
+            <motion.div
+              key={event.date}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`relative flex items-center ${
+                index % 2 === 0 ? "justify-start" : "justify-end"
+              } mb-12`}
+            >
+              {/* Terminal Window */}
+              <div className={`w-[calc(50%-2rem)] ${
+                index % 2 === 0 ? "mr-8" : "ml-8"
+              }`}>
+                <div className="bg-black/50 backdrop-blur-sm border border-zinc-700/50 rounded-lg overflow-hidden hover:border-green-500/50 transition-colors">
+                  {/* Terminal Header */}
+                  <div className="flex items-center justify-between px-4 py-2 bg-zinc-800/50 border-b border-zinc-700/50">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-red-500" />
+                      <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                      <div className="w-2 h-2 rounded-full bg-green-500" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-1">{event.title}</h3>
-                    <p className="text-muted-foreground">{event.description}</p>
+                    <div className="text-xs text-zinc-400">{event.date}</div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Terminal className="h-4 w-4 text-green-500" />
+                      <h3 className="text-white font-bold">{event.title}</h3>
+                    </div>
+                    <p className="text-sm text-zinc-400">{event.description}</p>
+                    <div className="mt-3 pt-3 border-t border-zinc-700/50">
+                      <code className="text-xs text-green-500">
+                        $ event --date {event.date} --type milestone
+                      </code>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="relative flex items-center justify-center w-8">
-                  <div className="h-4 w-4 rounded-full bg-primary" />
-                </div>
-                
-                <div className="w-1/2 pl-8" />
-              </motion.div>
-            ))}
-          </div>
+              </div>
+
+              {/* Circle on Timeline */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-green-500 border-4 border-zinc-900" />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default TimelineSection;

@@ -45,19 +45,45 @@ const FeatureCard: React.FC<{
 }> = ({ icon: Icon, title, description, index }) => {
   return (
     <motion.div
-      className="group relative bg-background/50 backdrop-blur-sm border border-purple-500/10 rounded-2xl p-8 hover:border-purple-500/20 transition-colors"
+      className="group relative bg-zinc-900/80 backdrop-blur-sm border border-emerald-500/20 rounded-lg overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="relative">
-        <div className="mb-4 inline-block p-3 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl group-hover:from-purple-500/20 group-hover:to-blue-500/20 transition-colors">
-          <Icon className="h-6 w-6" />
+      {/* Terminal window header */}
+      <div className="flex items-center gap-2 px-4 py-2 bg-zinc-800/80 border-b border-emerald-500/20">
+        <div className="flex gap-1.5">
+          <div className="w-3 h-3 rounded-full bg-red-500/80" />
+          <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+          <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
         </div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-muted-foreground">{description}</p>
+        <div className="flex-1 text-center">
+          <span className="text-xs text-zinc-400 font-mono">feature_{index + 1}.sh</span>
+        </div>
+      </div>
+      
+      {/* Terminal content */}
+      <div className="p-6">
+        <div className="relative space-y-4">
+          <div className="flex items-start gap-3">
+            <div className="mt-1">
+              <Icon className="h-5 w-5 text-emerald-500" />
+            </div>
+            <div className="flex-1">
+              <p className="font-mono text-emerald-500 mb-1">
+                <span className="text-zinc-500">$</span> echo "{title}"
+              </p>
+              <h3 className="text-lg font-semibold font-mono text-zinc-200">{title}</h3>
+            </div>
+          </div>
+          <div>
+            <p className="font-mono text-emerald-500 mb-1">
+              <span className="text-zinc-500">$</span> cat description.txt
+            </p>
+            <p className="text-zinc-400 pl-4 border-l border-zinc-700">{description}</p>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
@@ -65,12 +91,9 @@ const FeatureCard: React.FC<{
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background gradients */}
-      <div className="absolute inset-0">
-        <div className="absolute top-40 left-20 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 right-20 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-3xl" />
-      </div>
+    <section className="py-24 relative overflow-hidden bg-zinc-900/50">
+      {/* Background grid effect */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
@@ -82,18 +105,21 @@ const FeaturesSection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
+            <div className="inline-block">
+              <div className="font-mono text-emerald-500 mb-2">
+                <span className="text-zinc-500">$</span> ./display_features.sh
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold font-mono tracking-tight text-zinc-200">
                 周周黑客松
-              </span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              </h2>
+            </div>
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto font-mono">
               一个面向独立开发者的创新社区，让每个人都能找到志同道合的伙伴，一起探索和创造
             </p>
           </motion.div>
 
           {/* Features grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <FeatureCard
                 key={index}

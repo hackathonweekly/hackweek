@@ -49,22 +49,35 @@ const ActivityCard: React.FC<{
     >
       {/* Connection line */}
       {index < activities.length - 1 && (
-        <div className="absolute top-8 left-8 w-full h-0.5 bg-gradient-to-r from-purple-500/20 to-blue-500/20" />
+        <div className="absolute top-8 left-8 w-full h-0.5 bg-green-500/20" />
       )}
       
       <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-        <div className="relative bg-background/50 backdrop-blur-sm border border-purple-500/10 rounded-2xl p-6 hover:border-purple-500/20 transition-colors">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-2 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl group-hover:from-purple-500/20 group-hover:to-blue-500/20 transition-colors">
-              <Icon className="h-6 w-6" />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="relative bg-zinc-900 border border-zinc-700/50 rounded-lg overflow-hidden hover:border-green-500/50 transition-colors">
+          {/* Terminal Header */}
+          <div className="flex items-center gap-2 px-4 py-2 bg-zinc-800/50 border-b border-zinc-700/50">
+            <div className="w-2 h-2 rounded-full bg-red-500" />
+            <div className="w-2 h-2 rounded-full bg-yellow-500" />
+            <div className="w-2 h-2 rounded-full bg-green-500" />
+            <div className="ml-2 text-xs text-zinc-400 font-mono">activity-{index + 1}</div>
+          </div>
+
+          <div className="p-4">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="p-2 bg-zinc-800/50 rounded-lg group-hover:bg-green-500/20 transition-colors">
+                <Icon className="h-6 w-6 text-green-500" />
+              </div>
+              <div>
+                <h3 className="font-bold text-white font-mono">{title}</h3>
+                <p className="text-sm text-zinc-400 font-mono">{time}</p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-semibold">{title}</h3>
-              <p className="text-sm text-muted-foreground">{time}</p>
+            <p className="text-zinc-400 font-mono">{description}</p>
+            <div className="mt-4 pt-4 border-t border-zinc-700/50">
+              <code className="text-xs text-green-500">$ activity --view {index + 1} --type "{title}"</code>
             </div>
           </div>
-          <p className="text-muted-foreground">{description}</p>
         </div>
       </div>
     </motion.div>
@@ -73,11 +86,10 @@ const ActivityCard: React.FC<{
 
 const ActivitiesSection: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background gradients */}
+    <section className="py-24 bg-zinc-900 font-mono relative overflow-hidden">
+      {/* Terminal background pattern */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-[350px] h-[350px] bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-[350px] h-[350px] bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4px_4px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -90,17 +102,19 @@ const ActivitiesSection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-                活动形式
-              </span>
+            <div className="inline-flex items-center px-3 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-md border border-zinc-700/50 mb-4">
+              <span className="w-2 h-2 rounded-full bg-green-500 mr-2" />
+              活动形式
+            </div>
+            <h2 className="text-3xl font-bold text-white">
+              Activities<span className="text-green-500">.list()</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-zinc-400 max-w-2xl mx-auto">
               多样化的活动形式，总有一款适合你
             </p>
           </motion.div>
 
-          {/* Activities timeline */}
+          {/* Activities grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {activities.map((activity, index) => (
               <ActivityCard
@@ -124,10 +138,10 @@ const ActivitiesSection: React.FC = () => {
           >
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 text-white px-8 h-12 rounded-full group"
+              className="bg-green-500 hover:bg-green-600 text-black font-mono group px-8"
             >
               <span className="flex items-center">
-                加入社区
+                $ join --community
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </Button>

@@ -1,59 +1,74 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { Terminal } from "lucide-react";
 
-export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+const Header = () => {
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
-      }`}
+    <motion.header 
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm border-b border-zinc-700/50 font-mono"
     >
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src="/logo.png" alt="HackathonWeekly Logo" width={40} height={40} />
-            <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-              HackathonWeekly
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2 group">
+            <div className="p-1 rounded bg-green-500 group-hover:bg-green-400 transition-colors">
+              <Terminal className="h-5 w-5 text-black" />
+            </div>
+            <span className="text-white font-bold">
+              Hackathon<span className="text-green-500">.weekly</span>
             </span>
           </Link>
-          
+
+          {/* Terminal Status */}
+          <div className="hidden md:flex items-center space-x-4 text-sm text-zinc-400">
+            <div className="flex items-center space-x-2">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span>system.status: online</span>
+            </div>
+            <code className="text-green-500">v1.0.0</code>
+          </div>
+
+          {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="#intro" className="text-gray-700 hover:text-purple-600 transition">简介</Link>
-            <Link href="#features" className="text-gray-700 hover:text-purple-600 transition">特色</Link>
-            <Link href="#activities" className="text-gray-700 hover:text-purple-600 transition">活动</Link>
-            <Link href="#timeline" className="text-gray-700 hover:text-purple-600 transition">历程</Link>
-            <Link href="#team" className="text-gray-700 hover:text-purple-600 transition">社区</Link>
-            <a 
-              href="https://hackathonweekly.feishu.cn/wiki/WQ7EwFC7BijePAkMkAHcajkNnae"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-purple-600 transition"
+            {[
+              { href: "#intro", label: "简介" },
+              { href: "#features", label: "特色" },
+              { href: "#activities", label: "活动" },
+              { href: "#timeline", label: "历程" },
+              { href: "#team", label: "社区" },
+              { href: "https://hackathonweekly.feishu.cn/wiki/WQ7EwFC7BijePAkMkAHcajkNnae", label: "飞书文档" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : "_self"}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : ""}
+                className="text-zinc-400 hover:text-green-500 transition-colors"
+              >
+                <code>~/{link.label}</code>
+              </Link>
+            ))}
+            <Link
+              href="#"
+              className="text-zinc-400 hover:text-green-500 transition-colors"
             >
-              飞书文档
-            </a>
-            <Button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:opacity-90 transition-opacity">
-              加入社区
-            </Button>
+              <code>~/加入社区</code>
+            </Link>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden p-2 text-zinc-400 hover:text-green-500 transition-colors">
+            <code>$ menu</code>
+          </button>
         </div>
       </div>
     </motion.header>
   );
-}
+};
+
+export default Header;
