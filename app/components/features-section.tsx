@@ -72,7 +72,7 @@ const FeatureCard: React.FC<{
             </div>
             <div className="flex-1">
               <p className="font-mono text-emerald-500 mb-1">
-                <span className="text-zinc-500">$</span> echo "{title}"
+                <span className="text-zinc-500">$</span> echo &quot;{title}&quot;
               </p>
               <h3 className="text-lg font-semibold font-mono text-zinc-200">{title}</h3>
             </div>

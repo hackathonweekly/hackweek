@@ -75,7 +75,7 @@ const ActivityCard: React.FC<{
             </div>
             <p className="text-zinc-400 font-mono">{description}</p>
             <div className="mt-4 pt-4 border-t border-zinc-700/50">
-              <code className="text-xs text-green-500">$ activity --view {index + 1} --type "{title}"</code>
+              <code className="text-xs text-green-500">$ activity --view {index + 1} --type &quot;{title}&quot;</code>
             </div>
           </div>
         </div>

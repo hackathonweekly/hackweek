@@ -23,7 +23,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-zinc-400 text-sm">
-              <code>$ echo "每周黑客松，激发创新灵感"</code>
+              <code>$ echo &quot;每周黑客松，激发创新灵感&quot;</code>
             </p>
           </div>
 
@@ -107,7 +107,7 @@ const Footer = () => {
         <div className="pt-8 mt-8 border-t border-zinc-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-zinc-400 text-sm">
-              <code>$ copyright --year {currentYear} --name "HackathonWeekly" --rights "All rights reserved"</code>
+              <code>$ copyright --year {currentYear} --name &quot;HackathonWeekly&quot; --rights &quot;All rights reserved&quot;</code>
             </div>
             <div className="flex items-center space-x-4 text-sm text-zinc-400">
               <div className="flex items-center space-x-2">

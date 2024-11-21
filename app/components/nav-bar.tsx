@@ -92,7 +92,7 @@ export default function NavBar() {
                     : 'text-zinc-400 hover:text-green-500'
                 }`}
               >
-                <span className="text-green-500/50">> </span>
+                <span className="text-green-500/50">&gt; </span>
                 {item.name}
               </Link>
             ))}
@@ -132,7 +132,7 @@ export default function NavBar() {
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                <span className="text-green-500/50">> </span>
+                <span className="text-green-500/50">&gt; </span>
                 {item.name}
               </Link>
             ))}

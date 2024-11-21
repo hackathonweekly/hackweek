@@ -31,7 +31,7 @@ const teamMembers = [
   },
   {
     name: "Summer",
-    role: "深圳主理",
+    role: "深圳主理人",
     avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=botang&backgroundColor=b6e3f4&gender=female",
     bio: "Blur.today 的founder，正在理想主义的俗世里浪漫修行",
     github: "",
