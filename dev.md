@@ -53,7 +53,11 @@ bun run deploy
   
 
 ## 头像生成
+用这个网站的 api 生成头像！
+文档在这里：
+https://www.dicebear.com/styles/notionists/
 
-使用 notion-avatar.vercel.app 生成头像，然后保存到项目中
-自定义每个成员的头像样式（发型、肤色等）
-调整头像的背景色以匹配整体设计
+例子：
+https://api.dicebear.com/7.x/notionists/svg?seed=hahah 
+
+可以自定义头像样式（发型、肤色、背景色等）

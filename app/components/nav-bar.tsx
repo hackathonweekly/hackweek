@@ -16,7 +16,6 @@ export default function NavBar() {
   const navItems = [
     { name: "首页", href: "#hero" },
     { name: "简介", href: "#intro" },
-    { name: "特色", href: "#features" },
     { name: "活动", href: "#activities" },
     { name: "历程", href: "#timeline" },
     { name: "社区", href: "#team" },

@@ -55,7 +55,7 @@ const teamMembers = [
   {
     name: "jojo",
     role: "深圳主理人",
-    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=jojo&backgroundColor=ffe8d5&gender=male",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=jojo&backgroundColor=ffe8d5&brows=variant10&eyes=variant02&nose=variant04&lips=variant04&gesture=handPhone&gestureProbability=90&beard=variant06&beardProbability=80&hair=variant15&body=variant15",
     tags: ["人机交互", "AI", "创业者"],
     location: "深圳",
     bio: "熵增力场创始人，用AI让人机交互像熵增一样自然"
@@ -103,7 +103,7 @@ const teamMembers = [
   {
     name: "Harries",
     role: "深圳主理人",
-    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=harries&backgroundColor=ffd5d5&gender=female",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=yulal&backgroundColor=ffd5d5&gender=female",
     tags: ["AI极客", "交互设计", "共创者"],
     location: "深圳",
     bio: "正在成为AI极客；黑客松共学发起人之一；五年C端工具类+B端AI类交互设计"
@@ -117,20 +117,60 @@ const teamMembers = [
     bio: "连续创业者，喜欢折腾，探索永不止步。目前在AI＋硬件创业"
   },
   {
-    name: "潇洒",
-    role: "上海主理人",
-    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=xiaosa&backgroundColor=d5f0ff&gender=male",
-    tags: ["架构师", "技术布道", "数字化"],
-    location: "上海",
-    bio: "资深架构师/布道师，专注于制造、教育、医疗500强企业的数字化转型。致力于将大模型应用加速器等创新技术解决方案转化为实际项目成果。"
+    name: "hackbot 小松鼠",
+    role: " 全球主理人",
+    avatar: "https://r2.hackweek.cn/hackbot-squirrel.jpg",
+    tags: ["夸夸机器人", "社区 AI 助理"],
+    location: "全球",
+    bio: "社群最受欢迎的超级夸夸机器人，情绪价值拉满！它的形象是一只可爱的小松鼠！"
   },
   {
     name: "兵书Ada",
     role: "上海主理人",
-    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=ada&backgroundColor=ffd5eb&gender=female",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=adabin&backgroundColor=ffd5eb&gender=female",
     tags: ["媒体", "创意", "社区"],
     location: "上海",
     bio: "之前在 X ACADEMY 做过新媒体主编，擅长写推文，目前是 706 媒体实验室主理人"
+  },
+  {
+    name: "方圆",
+    role: "上海主理人",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=fangyuanlala&backgroundColor=ffe6d5&gender=female",
+    tags: ["ENFP", "连续创业", "大厂"],
+    location: "上海",
+    bio: "大厂打工人，连续创业者，ENFP"
+  },
+  {
+    name: "文龙",
+    role: "深圳主理人",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=wenlong&backgroundColor=d5e6ff&gender=male",
+    tags: ["ENFP", "极客", "创业者"],
+    location: "深圳",
+    bio: "充满好奇心的探索家，关注软AI及硬件产品，希望创造令人心动的产品"
+  },
+  {
+    name: "钟馗",
+    role: "深圳主理人",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=zhongkui&backgroundColor=e6ffd5&gender=male",
+    tags: ["社区组织", "产品", "创新"],
+    location: "深圳",
+    bio: "伟大人物最明的标志  便是他那坚强的意志"
+  },
+  {
+    name: "Max Means Best",
+    role: "北京主理人",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=max&backgroundColor=ffd5d5&gender=male",
+    tags: ["运营", "增长", "创业"],
+    location: "北京",
+    bio: "海本辍学折腾ing，Ex 极客公园、奇绩创坛，擅长运营、增长📈，更想要给所有天才idea一个生长的土壤～"
+  },
+  {
+    name: "Lamchung",
+    role: "深圳主理人",
+    avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=zicong&backgroundColor=d5ffeb&gender=male",
+    tags: ["AI产品经理", "黑洞脑"],
+    location: "深圳",
+    bio: "跟有趣的人做有意义的事"
   }
 ];
 
@@ -156,6 +196,9 @@ export default function TeamSection() {
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             来自不同领域的创造者们，一起探索、学习、成长
+          </p>
+          <p className="text-sm text-muted-foreground mt-2">
+            社区主理人（随机排序）
           </p>
         </motion.div>
 
