@@ -48,9 +48,11 @@ export default function Header() {
             >
               飞书文档
             </a>
-            <Button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:opacity-90 transition-opacity">
-              加入社区
-            </Button>
+            <Link href="/join">
+              <Button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:opacity-90 transition-opacity">
+                加入社区
+              </Button>
+            </Link>
           </nav>
         </div>
       </div>

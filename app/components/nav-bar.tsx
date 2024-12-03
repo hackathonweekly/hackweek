@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,9 +33,9 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
+            <Link href="/" className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
               HackathonWeekly
-            </span>
+            </Link>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
@@ -47,12 +48,12 @@ export default function NavBar() {
                   {item.name}
                 </a>
               ))}
-              <a
-                href="#join"
+              <Link
+                href="/join"
                 className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity duration-200"
               >
                 加入社区
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Lightbulb, Rocket, Code, Target } from "lucide-react";
+import Link from "next/link";
 
 const activities = [
   {
@@ -135,23 +136,13 @@ const ActivitiesSection: React.FC = () => {
           </div>
 
           {/* Call to action */}
-          <motion.div
-            className="mt-16 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 text-white px-8 h-12 rounded-full group"
-            >
-              <span className="flex items-center">
+          <div className="mt-16 text-center">
+            <Link href="/join">
+              <Button size="lg" className="bg-gradient-to-r from-purple-500 to-blue-500 text-white">
                 加入社区
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Button>
-          </motion.div>
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
