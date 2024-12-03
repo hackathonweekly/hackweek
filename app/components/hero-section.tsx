@@ -1,11 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code2, Rocket } from "lucide-react";
 import Image from "next/image";
+import QRCodeModal from "./qr-code-modal";
 
 export default function HeroSection() {
+  const [showQRCode, setShowQRCode] = useState(false);
+
   return (
     <section className="min-h-screen relative flex items-center py-16 md:py-24 overflow-hidden">
       {/* Background shapes */}
@@ -69,6 +73,7 @@ export default function HeroSection() {
                 <Button 
                   size="lg" 
                   className="bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 text-white px-6 md:px-8 h-11 md:h-12 rounded-full group"
+                  onClick={() => setShowQRCode(true)}
                 >
                   <span className="flex items-center">
                      加入社区
@@ -80,6 +85,7 @@ export default function HeroSection() {
                   size="lg" 
                   variant="outline" 
                   className="border-purple-500/20 hover:border-purple-500/40 h-11 md:h-12 rounded-full"
+                  onClick={() => window.open('https://hackathonweekly.feishu.cn/wiki/space/7364620968817475585?ccm_open_type=lark_wiki_spaceLink&open_tab_from=wiki_home', '_blank')}
                 >
                   <Code2 className="mr-2 h-4 w-4" />
                   了解更多
@@ -122,6 +128,8 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      <QRCodeModal isOpen={showQRCode} onClose={() => setShowQRCode(false)} />
 
       {/* Add keyframes for float animation */}
       <style jsx global>{`
