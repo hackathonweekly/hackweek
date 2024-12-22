@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 import { ErrorBoundary } from 'react-error-boundary';
 
 // 静态导入首屏组件
-import HeroSection from './components/hero-section';
-import IntroSection from './components/intro-section';
+import HeroSection from '../components/hero-section';
+import IntroSection from '../components/intro-section';
 
 // 加载和错误处理组件
 const LoadingSection = () => (
@@ -28,33 +28,33 @@ const ErrorSection = ({ error, resetErrorBoundary }: { error: Error; resetErrorB
 );
 
 // 动态导入其他组件
-const ActivitiesSection = dynamic(() => import('./components/activities-section'), {
+const ActivitiesSection = dynamic(() => import('../components/activities-section'), {
   loading: () => <LoadingSection />,
 });
 
-const StatsSection = dynamic(() => import('./components/stats-section'), {
+const StatsSection = dynamic(() => import('../components/stats-section'), {
   loading: () => <LoadingSection />,
 });
 
-const TimelineSection = dynamic(() => import('./components/timeline-section'), {
+const TimelineSection = dynamic(() => import('../components/timeline-section'), {
   loading: () => <LoadingSection />,
 });
 
-const TeamSection = dynamic(() => import('./components/team-section'), {
+const TeamSection = dynamic(() => import('../components/team-section'), {
   loading: () => <LoadingSection />,
 });
 
-const PartnersSection = dynamic(() => import('./components/partners-section'), {
+const PartnersSection = dynamic(() => import('../components/partners-section'), {
   loading: () => <LoadingSection />,
 });
 
-const GallerySection = dynamic(() => import('./components/gallery-section'), {
+const GallerySection = dynamic(() => import('../components/gallery-section'), {
   loading: () => <LoadingSection />,
 });
 
 export default function Home() {
   return (
-    <motion.main 
+    <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -63,7 +63,7 @@ export default function Home() {
       <section id="hero">
         <HeroSection />
       </section>
-      
+
       <section id="intro" className="py-16 md:py-24 bg-gray-50">
         <IntroSection />
       </section>

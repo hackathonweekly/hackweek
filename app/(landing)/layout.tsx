@@ -1,14 +1,14 @@
-import './globals.css';
-import './styles/animations.css';
+import '@/app/globals.css';
+import '@/app/styles/animations.css';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
-import Header from './components/header';
-import Footer from './components/footer';
-import BackToTop from './components/back-to-top';
-import ScrollProgress from './components/scroll-progress';
-import { baseMetadata, baseViewport } from './metadata';
+import Header from '@/app/components/header';
+import Footer from '@/app/components/footer';
+import BackToTop from '@/app/components/back-to-top';
+import ScrollProgress from '@/app/components/scroll-progress';
+import { baseMetadata, baseViewport } from '@/app/metadata';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap', // 优化字体加载
