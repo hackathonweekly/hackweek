@@ -2,7 +2,7 @@
 
 import { Member } from '@/lib/data';
 import Image from 'next/image';
-import { Share2, Link } from 'lucide-react';
+import { Share2 } from 'lucide-react';
 
 interface ChristmasCardProps {
   member: Member;
@@ -25,15 +25,6 @@ export default function ChristmasCard({ member }: ChristmasCardProps) {
       }
     } catch (error) {
       console.error('分享失败:', error);
-    }
-  };
-
-  const handleCopyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      alert('链接已复制到剪贴板！');
-    } catch (error) {
-      console.error('复制失败:', error);
     }
   };
 
@@ -62,26 +53,14 @@ export default function ChristmasCard({ member }: ChristmasCardProps) {
         </div>
 
         <div className="rounded-xl shadow-2xl overflow-hidden">
-          {/* Action Buttons */}
-          <div className="absolute top-4 right-4 z-20 flex gap-2">
-            {/* Share Button */}
-            <button
-              onClick={handleShare}
-              className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
-              aria-label="分享"
-            >
-              <Share2 className="w-5 h-5 text-gray-600" />
-            </button>
-            
-            {/* Copy Link Button */}
-            <button
-              onClick={handleCopyLink}
-              className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
-              aria-label="复制链接"
-            >
-              <Link className="w-5 h-5 text-gray-600" />
-            </button>
-          </div>
+          {/* Share Button */}
+          <button
+            onClick={handleShare}
+            className="absolute top-4 right-4 z-20 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
+            aria-label="分享"
+          >
+            <Share2 className="w-5 h-5 text-gray-600" />
+          </button>
 
           {/* Background Image Container */}
           <div className="relative h-[600px]">
