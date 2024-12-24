@@ -598,7 +598,7 @@ export const members: Member[] = [
   {
     "idx": "57",
     "name": "Wjll",
-    "phone": "12345678901",
+    "phone": "none",
     "avatar": "/christmas/image_57.jpeg",
     "bgImage": "/mbti/mbti-blue.jpg"
   },

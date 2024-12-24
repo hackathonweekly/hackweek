@@ -1,43 +1,38 @@
 import { members } from '@/lib/data';
+import { Metadata, ResolvingMetadata } from 'next';
 import ChristmasCard from '@/components/ChristmasCard';
 import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  // 先获取 id
+type Props = {
+  params: Promise<{ id: string }>,
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { id } = await params;
-  
   const member = members.find(m => m.idx === id);
+
   if (!member) {
     return {
-      title: '找不到这个圣诞卡片',
-      description: '这个圣诞卡片可能不存在或者已经被删除了',
+      title: '未找到用户',
     };
   }
 
-  const title = `${member.name}的圣诞卡片`;
-  const description = member.intro || '来看看我的圣诞卡片吧！';
-  const ogImage = `${process.env.NEXT_PUBLIC_APP_URL}/api/og?id=${id}`;
+  const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title,
-    description,
+    title: `${member.name}的圣诞卡片`,
+    description: member.intro || `这是${member.name}的圣诞卡片`,
     openGraph: {
-      title,
-      description,
-      images: [ogImage],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [ogImage],
+      images: [`/api/og?id=${id}`, ...previousImages],
     },
   };
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
-  // 先获取 id
+export default async function Page({ params, searchParams }: Props) {
   const { id } = await params;
   const member = members.find(m => m.idx === id);
 
@@ -45,5 +40,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     notFound();
   }
 
-  return <ChristmasCard member={member} />;
+  return (
+    <ChristmasCard member={member} />
+  );
 }

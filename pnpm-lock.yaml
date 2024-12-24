@@ -201,6 +201,9 @@ importers:
       '@cloudflare/next-on-pages':
         specifier: ^1.13.5
         version: 1.13.7(vercel@39.2.2)(wrangler@3.99.0)
+      '@types/qrcode':
+        specifier: ^1.5.5
+        version: 1.5.5
 
 packages:
 
@@ -1418,6 +1421,9 @@ packages:
 
   '@types/prop-types@15.7.14':
     resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
+
+  '@types/qrcode@1.5.5':
+    resolution: {integrity: sha512-CdfBi/e3Qk+3Z/fXYShipBT13OJ2fDO2Q2w5CIP5anLTLIndQG9z6P1cnm+8zCWSpm5dnxMFd/uREtb0EXuQzg==}
 
   '@types/react-dom@18.2.7':
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
@@ -5380,6 +5386,10 @@ snapshots:
   '@types/node@20.6.2': {}
 
   '@types/prop-types@15.7.14': {}
+
+  '@types/qrcode@1.5.5':
+    dependencies:
+      '@types/node': 20.6.2
 
   '@types/react-dom@18.2.7':
     dependencies:

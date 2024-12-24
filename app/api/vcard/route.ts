@@ -1,5 +1,6 @@
 import { members } from '@/lib/data';
 import { NextRequest, NextResponse } from 'next/server';
+import type { QRCodeToDataURLOptions } from 'qrcode';
 import QRCode from 'qrcode';
 
 export async function GET(request: NextRequest) {
@@ -14,7 +15,7 @@ export async function GET(request: NextRequest) {
       return new NextResponse('ID is required', { status: 400 });
     }
 
-    const member = members.find(m => m.idx === String(id));
+    const member = members.find(m => m.idx === id);
     if (!member) {
       return new NextResponse('Member not found', { status: 404 });
     }
@@ -26,7 +27,7 @@ export async function GET(request: NextRequest) {
       'CHARSET:UTF-8',
       `N:${member.name};;;`,
       `FN:${member.name}`,
-      `TEL;TYPE=CELL:${member.phone}`,
+      member.phone && member.phone !== 'none' ? `TEL;TYPE=CELL:${member.phone}` : '',
       member.intro ? `NOTE;CHARSET=UTF-8:${member.intro}` : '',
       'END:VCARD'
     ].filter(Boolean).join('\r\n');
@@ -36,7 +37,7 @@ export async function GET(request: NextRequest) {
     
     if (!isIOSSafari) {
       // 生成二维码
-      const qrCodeDataUrl = await QRCode.toDataURL(vcard, {
+      const qrCodeOptions: QRCodeToDataURLOptions = {
         type: 'image/png',
         margin: 2,
         width: 300,
@@ -44,7 +45,9 @@ export async function GET(request: NextRequest) {
           dark: '#000',
           light: '#FFF'
         }
-      });
+      };
+
+      const qrCodeDataUrl = await QRCode.toDataURL(vcard, qrCodeOptions);
 
       // 显示二维码页面
       const htmlContent = `
@@ -85,6 +88,7 @@ export async function GET(request: NextRequest) {
               font-size: 18px;
               color: #4b5563;
               margin-bottom: 16px;
+              display: ${member.phone && member.phone !== 'none' ? 'block' : 'none'};
             }
             .qrcode {
               margin: 20px 0;
@@ -110,7 +114,7 @@ export async function GET(request: NextRequest) {
         <body>
           <div class="card">
             <div class="name">${member.name}</div>
-            <div class="phone">${member.phone}</div>
+            ${member.phone && member.phone !== 'none' ? `<div class="phone">${member.phone}</div>` : ''}
             ${member.intro ? `<div class="intro">${member.intro}</div>` : ''}
             <div class="qrcode">
               <img src="${qrCodeDataUrl}" alt="联系人二维码">
