@@ -4,7 +4,10 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const member = members.find(m => m.idx === params.id);
+  // 先获取 id
+  const { id } = await params;
+  
+  const member = members.find(m => m.idx === id);
   if (!member) {
     return {
       title: '找不到这个圣诞卡片',
@@ -14,7 +17,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 
   const title = `${member.name}的圣诞卡片`;
   const description = member.intro || '来看看我的圣诞卡片吧！';
-  const ogImage = `${process.env.NEXT_PUBLIC_APP_URL}/api/og?id=${params.id}`;
+  const ogImage = `${process.env.NEXT_PUBLIC_APP_URL}/api/og?id=${id}`;
 
   return {
     title,
@@ -33,9 +36,10 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default async function Page(props: any) {
-  const { params } = props;
-  const member = members.find(m => m.idx === params.id);
+export default async function Page({ params }: { params: { id: string } }) {
+  // 先获取 id
+  const { id } = await params;
+  const member = members.find(m => m.idx === id);
 
   if (!member) {
     notFound();
