@@ -2,7 +2,7 @@
 
 import { Member } from '@/lib/data';
 import Image from 'next/image';
-import { Share2 } from 'lucide-react';
+import { Share2, Phone } from 'lucide-react';
 
 interface ChristmasCardProps {
   member: Member;
@@ -10,22 +10,49 @@ interface ChristmasCardProps {
 
 export default function ChristmasCard({ member }: ChristmasCardProps) {
   const handleShare = async () => {
+    const shareText = `${member.name}的圣诞卡片 🎄\n\n${member.intro}\n\n快来看看我的圣诞卡片吧！\n${window.location.href}`;
     const shareData = {
       title: `${member.name}的圣诞卡片`,
-      text: '来看看我的圣诞卡片吧！',
+      text: shareText,
       url: window.location.href,
     };
 
     try {
       if (navigator.share) {
+        // 优先使用系统分享
         await navigator.share(shareData);
       } else {
-        await navigator.clipboard.writeText(window.location.href);
-        alert('链接已复制到剪贴板！');
+        // 创建临时输入框并复制
+        const textArea = document.createElement('textarea');
+        textArea.value = shareText;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+          document.execCommand('copy');
+          alert('已复制到剪贴板，快去分享给朋友吧！');
+        } catch (err) {
+          console.error('复制失败', err);
+        }
+        
+        document.body.removeChild(textArea);
       }
     } catch (error) {
-      console.error('分享失败:', error);
+      console.log('分享操作未完成');
     }
+  };
+
+  const handleDownloadVCard = () => {
+    // 检测设备类型
+    const userAgent = navigator.userAgent;
+    const isIOSSafari = /iPhone|iPad|iPod/i.test(userAgent) && /Safari/i.test(userAgent) && !/Chrome/i.test(userAgent);
+
+    // 所有设备都使用同一个端点，后端会根据 User-Agent 决定返回 vCard 还是二维码页面
+    window.location.href = `/api/vcard?id=${member.idx}`;
   };
 
   // 根据背景图的类型决定主题色和显示文字
@@ -53,14 +80,23 @@ export default function ChristmasCard({ member }: ChristmasCardProps) {
         </div>
 
         <div className="rounded-xl shadow-2xl overflow-hidden">
-          {/* Share Button */}
-          <button
-            onClick={handleShare}
-            className="absolute top-4 right-4 z-20 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
-            aria-label="分享"
-          >
-            <Share2 className="w-5 h-5 text-gray-600" />
-          </button>
+          {/* Action Buttons */}
+          <div className="absolute top-4 right-4 z-20 flex gap-2">
+            {/* <button
+              onClick={handleDownloadVCard}
+              className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
+              aria-label="保存联系人"
+            >
+              <Phone className="w-5 h-5 text-gray-600" />
+            </button> */}
+            <button
+              onClick={handleShare}
+              className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
+              aria-label="分享"
+            >
+              <Share2 className="w-5 h-5 text-gray-600" />
+            </button>
+          </div>
 
           {/* Background Image Container */}
           <div className="relative h-[600px]">
@@ -71,7 +107,7 @@ export default function ChristmasCard({ member }: ChristmasCardProps) {
               fill
               className="object-cover"
             />
-            
+
             {/* Content Container */}
             <div className="relative z-10 h-full flex items-center justify-center">
               {/* Middle Card */}

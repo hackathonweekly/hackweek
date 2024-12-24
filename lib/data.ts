@@ -546,7 +546,7 @@ export const members: Member[] = [
   {
     "idx": "52",
     "name": "zzz",
-    "phone": "none",
+    "phone": "12345678901",
     "avatar": "/christmas/image_52.jpeg",
     "bgImage": "/mbti/mbti-blue.jpg"
   },
@@ -594,7 +594,7 @@ export const members: Member[] = [
   {
     "idx": "57",
     "name": "Wjll",
-    "phone": "none",
+    "phone": "12345678901",
     "avatar": "/christmas/image_57.jpeg",
     "bgImage": "/mbti/mbti-blue.jpg"
   },
