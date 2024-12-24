@@ -141,7 +141,7 @@ export default function ChristmasCard({ member }: ChristmasCardProps) {
               {member.intro && (
                 <div className="absolute bottom-12 left-6 right-6">
                   <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 text-gray-800 shadow-lg">
-                    <p className="text-lg leading-relaxed">{member.intro}</p>
+                    <p className="text-lg leading-relaxed max-h-[120px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent">{member.intro}</p>
                   </div>
                 </div>
               )}
