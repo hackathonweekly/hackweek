@@ -545,10 +545,14 @@ export const members: Member[] = [
   },
   {
     "idx": "52",
-    "name": "zzz",
-    "phone": "12345678901",
-    "avatar": "/christmas/image_52.jpeg",
-    "bgImage": "/mbti/mbti-blue.jpg"
+    "name": "Zoe",
+    "phone": "none",
+    "mbti": "ISFP",
+    "zodiac": "金牛",
+    "hobbies": ["研究外星人"],
+    "avatar": "/christmas/image_62.jpeg",
+    "bgImage": "/mbti/mbti-yellow.jpg",
+    "intro": "超級大美女"
   },
   {
     "idx": "53",
@@ -640,6 +644,24 @@ export const members: Member[] = [
     "avatar": "/christmas/image_61.png",
     "bgImage": "/mbti/mbti-blue.jpg",
     "intro": "BAT大厂在职，深圳和海外有自己的创业公司，主要接一些toB/toG的AI研发项目"
+  },
+  {
+    "idx": "62",
+    "name": "熊熊",
+    "phone": "18503021420",
+    "mbti": "ENFP",
+    "hobbies": ["跳舞", "看书"],
+    "avatar": "/christmas/image_62.png",
+    "bgImage": "/mbti/mbti-yellow.jpg",
+    "intro": "后大厂正能量创业女孩"
+  },
+  {
+    "idx": "63",
+    "name": "饼干",
+    "phone": "none",
+    "avatar": "/christmas/image_63.png",
+    "bgImage": "/mbti/mbti-blue.jpg",
+    "intro": "饼干"
   }
 ];
 
