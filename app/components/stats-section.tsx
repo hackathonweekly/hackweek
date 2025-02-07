@@ -7,7 +7,7 @@ import { Users, Code2, Trophy, Star } from "lucide-react";
 const stats = [
   {
     icon: Users,
-    value: "2000+",
+    value: "4000+",
     label: "创造者",
     description: "来自全国各地的独立开发者和创业者"
   },
@@ -19,13 +19,13 @@ const stats = [
   },
   {
     icon: Trophy,
-    value: "5+",
+    value: "6+",
     label: "城市",
-    description: "北京、上海、深圳、广州、杭州"
+    description: "深圳、杭州、上海、北京、广州、清迈"
   },
   {
     icon: Star,
-    value: "12+",
+    value: "20+",
     label: "主题",
     description: "从AI到机器人，激发无限创意"
   }
@@ -97,7 +97,7 @@ const StatsSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <motion.div 
+          <motion.div
             className="text-center mb-16 space-y-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
