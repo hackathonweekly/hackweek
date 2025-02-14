@@ -27,7 +27,7 @@ export default function JoinPage() {
             <div className="bg-white rounded-lg shadow-sm p-6 space-y-4">
               <div className="prose prose-slate max-w-none">
                 <ul>
-                  <li>我们是一个公益开源的极客社区，欢迎对技术和创新有热情的你！</li>
+                  <li>我们是一个AI产品创造者社区，欢迎对技术和创新有热情的你！</li>
                   <li>关注公众号，获取最新活动信息和技术分享。</li>
                 </ul>
               </div>

@@ -62,7 +62,7 @@ const IntroSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <motion.div 
+          <motion.div
             className="text-center mb-16 space-y-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ const IntroSection: React.FC = () => {
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              一个公益开源的极客社区，定期举办活动，帮助每个参与者实现最小可行产品
+              一个AI产品创造者社区，定期举办活动，帮助每个参与者实现最小可行产品
             </p>
           </motion.div>
 

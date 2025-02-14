@@ -4,13 +4,13 @@ export default function Terms() {
   return (
     <div className="container mx-auto px-4 py-16 max-w-4xl">
       <h1 className="text-3xl font-bold mb-8">服务条款</h1>
-      
+
       <div className="prose prose-lg max-w-none">
         <p className="text-gray-600 mb-6">最后更新日期：2024年11月20日</p>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">1. 服务说明</h2>
-          <p>HackathonWeekly（以下简称&ldquo;我们&rdquo;）是一个公益开源的极客社区，通过组织黑客松活动，帮助创作者实现想法。使用我们的服务即表示您同意以下条款。</p>
+          <p>HackathonWeekly（以下简称&ldquo;我们&rdquo;）是一个AI产品创造者社区，通过组织黑客松活动，帮助创作者实现想法。使用我们的服务即表示您同意以下条款。</p>
         </section>
 
         <section className="mb-8">
