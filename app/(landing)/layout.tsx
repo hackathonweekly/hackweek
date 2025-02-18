@@ -17,8 +17,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   ...baseMetadata,
   metadataBase: new URL('https://hackathonweekly.cn'),
-  // title: 'HackathonWeekly | 周周黑客松',
-  title: '黑客周',
+  title: 'HackathonWeekly | 周周黑客松',
+  // title: '黑客周',
+  // title: '周周Hack',
   description: '花1周时间，创造1个最小可行产品，解决1个生活痛点',
   keywords: 'hackathon, 黑客松, MVP, 产品开发, 创新, 编程, AI, 人工智能',
   authors: [{ name: 'HackathonWeekly Team' }],

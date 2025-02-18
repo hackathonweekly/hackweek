@@ -15,8 +15,8 @@ export default function Footer() {
               HackathonWeekly
             </h3>
             <p className="text-gray-600">AI创造者社区，享受创造的乐趣</p>
-            <a 
-              href="https://hackathonweekly.feishu.cn/wiki/WQ7EwFC7BijePAkMkAHcajkNnae" 
+            <a
+              href="https://hackathonweekly.feishu.cn/wiki/WQ7EwFC7BijePAkMkAHcajkNnae"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-purple-600 transition-colors"
@@ -24,7 +24,7 @@ export default function Footer() {
               飞书协作文档
             </a>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">关注我们</h4>
             <div className="space-y-3">
@@ -42,7 +42,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">资源</h4>
             <div className="space-y-3">
@@ -51,7 +51,7 @@ export default function Footer() {
               <a href="#" className="text-gray-600 hover:text-purple-600 block transition-colors">社区指南</a>
             </div>
           </div>
-          
+
           <div className="text-center">
             <h4 className="font-semibold mb-4">公众号</h4>
             <div className="relative w-32 h-32 mx-auto">
@@ -67,18 +67,19 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        
+
         <div className="mt-8 pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
             <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
               <p>&copy; {new Date().getFullYear()} HackathonWeekly. All rights reserved.</p>
-              <a 
-                href="https://beian.miit.gov.cn/" 
-                target="_blank" 
+              <a
+                href="https://beian.miit.gov.cn/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-purple-600 transition-colors"
               >
-                琼ICP备2024040807号-1
+                {/* 琼ICP备2024040807号-1 */}
+                粤ICP备2022122081号-3
               </a>
             </div>
             <div className="flex gap-6">
