@@ -7,7 +7,7 @@ import { Users, Code2, Trophy, Star } from "lucide-react";
 const stats = [
   {
     icon: Users,
-    value: "4000+",
+    value: "5000+",
     label: "创造者",
     description: "来自全国各地的独立开发者和创业者"
   },
