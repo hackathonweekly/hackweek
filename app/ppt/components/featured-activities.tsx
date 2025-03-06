@@ -8,8 +8,8 @@ export default function FeaturedActivities() {
       items: [
         {
           icon: Rocket,
-          title: "每周迷你黑客松",
-          description: "闪电式团队组建、MVP开发、Demo演示",
+          title: "开发者交流会",
+          description: "邀请技术大咖或社区专家分享前沿应用",
         },
         {
           icon: Laptop,
@@ -23,8 +23,8 @@ export default function FeaturedActivities() {
       items: [
         {
           icon: Users,
-          title: "开发者交流会",
-          description: "邀请技术大咖或社区专家分享前沿应用",
+          title: "迷你黑客松",
+          description: "闪电式团队组建、MVP开发、Demo演示",
         },
         {
           icon: Trophy,
@@ -43,8 +43,8 @@ export default function FeaturedActivities() {
         },
         {
           icon: Globe,
-          title: "12城联动AI共学",
-          description: "与合作方706媒体社区等联合举办，扩大影响力",
+          title: "网站项目收录",
+          description: "线上项目展示，每周更新",
         },
       ],
     },
@@ -102,12 +102,16 @@ export default function FeaturedActivities() {
 
           {/* Activity photos */}
           <div className="mt-6 grid grid-cols-4 gap-3">
-            {[1, 2, 3, 4].map((i) => (
+            {[2001, 1001, 2008, 1011].map((i) => (
               <div
                 key={i}
-                className="aspect-[4/3] rounded-xl bg-muted/30 border border-border/50 flex items-center justify-center text-sm text-muted-foreground"
+                className="aspect-[4/3] rounded-xl overflow-hidden"
               >
-                活动照片 {i}
+                <img 
+                  src={`/events/${i}.jpg`} 
+                  alt={`Activity photo ${i}`}
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>

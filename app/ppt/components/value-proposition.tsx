@@ -10,7 +10,6 @@ export default function ValueProposition() {
         "优质早期项目：第一时间对接AI/MVP项目，获取潜在投资标的",
         "行业前沿生态：深度跟踪AI + 创客趋势，捕捉新风口",
         "品牌曝光：黑客松、Demo Day、媒体报道多渠道露出",
-        "投后服务：社区技术与资源支持，促进项目快速迭代",
       ],
     },
     {
@@ -71,7 +70,7 @@ export default function ValueProposition() {
                     <div className="p-1.5 rounded-lg bg-primary/10">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground">
+                    <h3 className="text-xl font-semibold text-foreground">
                       {prop.title}
                     </h3>
                   </div>
@@ -83,7 +82,7 @@ export default function ValueProposition() {
                         className="flex items-start gap-2"
                       >
                         <div className="w-1 h-1 rounded-full bg-primary/60 mt-1.5" />
-                        <p className="text-xs text-muted-foreground flex-1 line-clamp-2">
+                        <p className="text-sm text-foreground flex-1 line-clamp-2">
                           {point}
                         </p>
                       </div>

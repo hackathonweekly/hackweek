@@ -109,20 +109,28 @@ export default function Contact() {
 
             {/* QR codes */}
             <div className="grid grid-cols-2 gap-4">
-              {["公众号", "小程序"].map((type) => (
+              {[
+                { type: "公众号", image: "/wechat_official_qr.jpg" },
+                { type: "小助手", image: "/wechat_qr.jpeg" }
+              ].map((item) => (
                 <div
-                  key={type}
+                  key={item.type}
                   className="p-4 bg-muted/30 rounded-xl border border-border/50 flex flex-col items-center gap-4"
                 >
-                  <div className="w-32 h-32 bg-muted/50 rounded-lg flex items-center justify-center">
-                    <QrCode className="w-8 h-8 text-muted-foreground" />
+                  <div className="w-32 h-32 rounded-lg overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={`${item.type}二维码`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <span className="text-sm text-muted-foreground">
-                    {type}二维码
+                    {item.type}二维码
                   </span>
                 </div>
               ))}
             </div>
+
           </div>
 
           {/* Final call to action */}

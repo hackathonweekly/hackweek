@@ -46,15 +46,15 @@ export default function VisionMission() {
             <div className="flex items-center gap-12 justify-center">
               <div className="flex items-center gap-3">
                 <Heart className="w-5 h-5 text-primary" />
-                <span className="text-lg text-muted-foreground">包容互助</span>
+                <span className="text-lg text-muted-foreground">爱</span>
               </div>
               <div className="flex items-center gap-3">
                 <Sparkles className="w-5 h-5 text-primary" />
-                <span className="text-lg text-muted-foreground">持续成长</span>
+                <span className="text-lg text-muted-foreground">自由</span>
               </div>
               <div className="flex items-center gap-3">
                 <Rocket className="w-5 h-5 text-primary" />
-                <span className="text-lg text-muted-foreground">创新不息</span>
+                <span className="text-lg text-muted-foreground">创造</span>
               </div>
             </div>
           </div>

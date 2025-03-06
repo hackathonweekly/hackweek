@@ -1,5 +1,5 @@
 import PPTPageLayout from "./ppt-page-layout";
-import { School, Building2, Handshake, Newspaper } from "lucide-react";
+import { School, Building2, Newspaper } from "lucide-react";
 
 export default function Partners() {
   const partnerCategories = [
@@ -18,15 +18,6 @@ export default function Partners() {
         "Z·Pilot",
         "安德鲁人形机器人",
         "XTools",
-      ],
-    },
-    {
-      icon: Handshake,
-      title: "公益与政府联动",
-      partners: [
-        "场地支持",
-        "政策扶持",
-        "共建青年创新计划",
       ],
     },
     {
@@ -55,7 +46,7 @@ export default function Partners() {
     <PPTPageLayout>
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="px-16 py-12">
+        <div className="px-16 py-8">
           <div>
             <div className="inline-block bg-primary/10 text-primary rounded-full px-4 py-1 text-sm mb-4">
               合作伙伴
@@ -67,35 +58,32 @@ export default function Partners() {
         </div>
 
         {/* Main content */}
-        <div className="flex-1 px-16">
+        <div className="flex-1 px-16 pb-8">
           {/* Partner categories */}
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-3 gap-5">
             {partnerCategories.map((category) => {
               const Icon = category.icon;
               return (
                 <div
                   key={category.title}
-                  className="p-6 bg-muted/50 rounded-xl border border-border hover:border-border/80 transition-colors"
+                  className="p-4 bg-muted/50 rounded-xl border border-border hover:border-border/80 transition-colors"
                 >
-                  <div className="flex items-center gap-4 mb-4">
+                  <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 rounded-lg bg-primary/10">
-                      <Icon className="w-6 h-6 text-primary" />
+                      <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <h3 className="text-xl font-semibold text-foreground">
                       {category.title}
                     </h3>
                   </div>
-                  <div className="space-y-2 pl-12">
+                  <div className="space-y-2 pl-8">
                     {category.partners.map((partner) => (
                       <div
                         key={partner}
-                        className="flex items-center gap-2"
+                        className="flex items-center"
                       >
-                        <div className="w-8 h-8 rounded bg-muted/30 flex items-center justify-center text-xs text-muted-foreground">
-                          Logo
-                        </div>
-                        <span className="text-muted-foreground">
-                          {partner}
+                        <span className="text-foreground text-base">
+                          • {partner}
                         </span>
                       </div>
                     ))}
@@ -106,21 +94,18 @@ export default function Partners() {
           </div>
 
           {/* Community partners */}
-          <div className="mt-8">
-            <h3 className="text-xl font-semibold text-foreground mb-6">
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold text-foreground mb-4">
               社区合作伙伴
             </h3>
             <div className="grid grid-cols-4 gap-4">
               {communities.map((community) => (
                 <div
                   key={community}
-                  className="p-4 bg-muted/30 rounded-xl border border-border/50 flex items-center gap-3"
+                  className="p-3 bg-muted/30 rounded-xl border border-border/50 flex items-center"
                 >
-                  <div className="w-10 h-10 rounded bg-muted/30 flex items-center justify-center text-xs text-muted-foreground">
-                    Logo
-                  </div>
-                  <span className="text-muted-foreground">
-                    {community}
+                  <span className="text-foreground text-sm">
+                    • {community}
                   </span>
                 </div>
               ))}
@@ -128,8 +113,8 @@ export default function Partners() {
           </div>
 
           {/* Advantages */}
-          <div className="mt-8 p-6 bg-muted/20 rounded-xl border border-border/50">
-            <p className="text-center text-lg text-muted-foreground">
+          <div className="mt-6 p-4 bg-muted/20 rounded-xl border border-border/50">
+            <p className="text-center text-base text-foreground">
               丰富资源、快速对接产业、技术与市场，形成一体化孵化体系
             </p>
           </div>

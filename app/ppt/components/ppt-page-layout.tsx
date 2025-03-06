@@ -26,7 +26,7 @@ export default function PPTPageLayout({
         </div>
 
         {/* Logo */}
-        <div className="absolute top-4 right-4 flex items-center gap-2 z-20">
+        <div className="absolute top-8 right-8 flex items-center gap-2 z-20">
           <Image
             src="/logo.png"
             alt="HackathonWeekly Logo"

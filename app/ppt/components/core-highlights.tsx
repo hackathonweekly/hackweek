@@ -7,27 +7,27 @@ export default function CoreHighlights() {
     {
       icon: Target,
       title: "专注MVP",
-      description: "提供系统化方法论、开源工具和案例支持，7天完成MVP",
+      description: "提供系统化方法论、知识库、开源工具和案例支持，7天完成MVP",
     },
     {
       icon: Users,
       title: "创造者圈子",
       description: "开发者、创业者、产品、设计、运营、职场人跨界协作",
     },
-    {
-      icon: GitBranch,
-      title: "开源协作",
-      description: "项目文档开放共享、开源精神驱动",
-    },
+    // {
+    //   icon: GitBranch,
+    //   title: "开源协作",
+    //   description: "项目文档开放共享、开源精神驱动",
+    // },
     {
       icon: MapPin,
       title: "多城市覆盖",
-      description: "北上广深杭+清迈，每周线下活动触手可及",
+      description: "北京、上海、广州、深圳、杭州、清迈，每周活动触手可及",
     },
     {
       icon: Calendar,
       title: "高频活动",
-      description: "每周迷你黑客松、AI 共学工作坊、开发者交流会等，让创新常态化",
+      description: "每周活动：AI 共学工作坊、开发者交流会、迷你黑客松等，让创新常态化",
     },
   ];
 

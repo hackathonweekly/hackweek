@@ -1,55 +1,64 @@
 import PPTPageLayout from "./ppt-page-layout";
 import { Users } from "lucide-react";
+import Image from "next/image";
 
 export default function Team() {
   const teamMembers = [
     {
       name: "Jackie",
       role: "技术负责人",
-      title: "AI 算法/全栈工程师",
+      title: "AI算法工程师",
       highlight: "负责社区AI项目技术支持与指导",
+      avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=jackie&backgroundColor=ffdfbf&gender=male",
     },
     {
       name: "Summer",
-      role: "运营负责人",
+      role: "商务负责人",
       title: "Blur.today 的 Founder",
-      highlight: "负责社区整体运营与发展规划",
+      highlight: "负责社区对外合作",
+      avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=botang&backgroundColor=b6e3f4&gender=female",
     },
     {
       name: "腾",
       role: "产品负责人",
       title: "大厂产品经理",
       highlight: "负责社区产品方向与创新实践",
+      avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=teng&backgroundColor=d5f5ff&gender=male",
     },
     {
       name: "逸云",
       role: "设计负责人",
       title: "创意设计师",
       highlight: "负责社区视觉设计与用户体验",
+      avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=yiyun&backgroundColor=e6d5ff&gender=male",
+    },
+    {
+      name: "伯棠",
+      role: "杭州负责人",
+      title: "AI算法工程师",
+      highlight: "负责杭州社区建设",
+      avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=summer&backgroundColor=ffd5d5&gender=male",
+    },
+    {
+      name: "铭龙",
+      role: "广州负责人",
+      title: "大厂开发工程师",
+      highlight: "负责广州社区建设",
+      avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=ou&backgroundColor=d5ffe6&gender=male",
     },
     {
       name: "吴音格",
       role: "硬件负责人",
       title: "AI硬件产品经理",
-      highlight: "负责AI硬件项目实践与指导",
+      highlight: "负责硬件项目实践与指导",
+      avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=kunzhi&backgroundColor=fff3d5&gender=female",
     },
     {
       name: "Harries",
-      role: "内容负责人",
-      title: "706 媒体实验室主理人",
-      highlight: "负责社区内容生产与传播",
-    },
-    {
-      name: "小强",
-      role: "活动负责人",
-      title: "跨界创新者",
-      highlight: "负责线下活动策划与执行",
-    },
-    {
-      name: "小红",
-      role: "社群负责人",
-      title: "社群运营专家",
-      highlight: "负责社群沟通与成员服务",
+      role: "共学负责人",
+      title: "大厂交互设计师",
+      highlight: "负责共学社区建设",
+      avatar: "https://api.dicebear.com/7.x/notionists/svg?seed=yulal&backgroundColor=ffd5d5&gender=female",
     },
   ];
 
@@ -77,9 +86,22 @@ export default function Team() {
                 key={member.name}
                 className="group p-4 bg-muted/50 rounded-xl border border-border hover:border-border/80 transition-colors"
               >
-                {/* Avatar placeholder */}
-                <div className="w-12 h-12 mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Users className="w-6 h-6 text-primary" />
+                {/* Avatar */}
+                <div className="w-14 h-14 mb-4 relative">
+                  <Image
+                    src={member.avatar}
+                    alt={member.name}
+                    width={64}
+                    height={64}
+                    className="rounded-lg"
+                    onError={(e) => {
+                      // 如果头像加载失败，使用备用图标
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = '<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center"><svg class="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>';
+                    }}
+                  />
                 </div>
 
                 <div className="space-y-3">
