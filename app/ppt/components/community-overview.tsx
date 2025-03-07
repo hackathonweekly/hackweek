@@ -2,13 +2,6 @@ import PPTPageLayout from "./ppt-page-layout";
 import { Rocket, Users, MapPin, BookOpen } from "lucide-react";
 
 export default function CommunityOverview() {
-  const stats = [
-    { label: "社区成员", value: "5000+", icon: Users },
-    { label: "覆盖城市", value: "6+", icon: MapPin },
-    { label: "线下活动", value: "100+", icon: Rocket },
-    { label: "知识库文章", value: "200+", icon: BookOpen },
-  ];
-
   return (
     <PPTPageLayout>
       <div className="flex flex-col h-full">
@@ -37,31 +30,6 @@ export default function CommunityOverview() {
                 <span className="text-muted-foreground">成立于 2024年5月，深圳</span>
               </div>
             </div>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-4 gap-6">
-            {stats.map((stat) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={stat.label}
-                  className="group p-6 bg-muted/50 rounded-xl border border-border hover:border-border/80 transition-colors"
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-lg bg-background text-primary group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div className="text-lg text-muted-foreground group-hover:text-foreground transition-colors">
-                      {stat.label}
-                    </div>
-                  </div>
-                  <div className="text-4xl font-bold text-primary">
-                    {stat.value}
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
       </div>
