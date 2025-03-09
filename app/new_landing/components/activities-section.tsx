@@ -4,8 +4,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+// Define a type for valid tab keys
+type ActivityTabKey = 'weekly' | 'monthly' | 'quarterly';
+
 export default function ActivitiesSection() {
-  const [activeTab, setActiveTab] = useState("weekly");
+  // Update your state to use this type
+  const [activeTab, setActiveTab] = useState<ActivityTabKey>('weekly');
 
   const activities = {
     weekly: [
@@ -102,7 +106,7 @@ export default function ActivitiesSection() {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => setActiveTab(tab.id as ActivityTabKey)}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-colors ${
                 activeTab === tab.id
                   ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white"

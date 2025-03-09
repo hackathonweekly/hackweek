@@ -10,7 +10,7 @@ import ProjectsSection from "./components/projects-section";
 import ActivitiesSection from "./components/activities-section";
 import PartnersSection from "./components/partners-section";
 import TestimonialsSection from "./components/testimonials-section";
-import ContactSection from "./components/contact-section";
+// import ContactSection from "./components/contact-section";
 import NavBar from "./components/nav-bar";
 import Footer from "./components/footer";
 
@@ -34,7 +34,7 @@ export default function NewLandingPage() {
         <ActivitiesSection />
         <PartnersSection />
         <TestimonialsSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </main>
       
       <Footer />

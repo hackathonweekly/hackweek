@@ -1,7 +1,7 @@
 "use client";
 
 import Milestones from "./components/milestones";
-import Team from "./components/team";
+// import Team from "./components/team";
 import ProjectShowcase from "./components/project-showcase";
 import Partners from "./components/partners";
 import Contact from "./components/contact";
@@ -21,7 +21,6 @@ export default function PPTPage() {
       <Milestones />
       <FeaturedActivities1 />
       <FeaturedActivities2 />
-      {/* <Team /> */}
       <ProjectShowcase />
       <Partners />
       <ValueFutureCombined />
