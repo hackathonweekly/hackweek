@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import Image from 'next/image';
 
 interface ResponsiveLayoutProps {
   className?: string;
@@ -23,19 +22,6 @@ export default function ResponsiveLayout({
           <div className="absolute bottom-0 right-1/3 w-1/3 h-1/3 bg-gradient-to-t from-purple-500/5 to-transparent rounded-full blur-2xl" />
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:44px_44px]"/>
-        </div>
-
-        {/* Logo - responsive positioning */}
-        <div className="absolute top-4 md:top-6 lg:top-8 right-4 md:right-6 lg:right-8 flex items-center gap-2 z-20">
-          <Image
-            src="/logo.png"
-            alt="HackathonWeekly Logo"
-            width={32}
-            height={32}
-          />
-          <span className="text-base md:text-lg font-semibold" style={{ color: 'rgb(71, 49, 227)' }}>
-            HackathonWeekly
-          </span>
         </div>
 
         {/* Content */}

@@ -72,13 +72,13 @@ export default function FeaturedActivities1() {
 
           {/* Activity photos - grid layout like FeaturedActivities2 */}
           <div className="grid grid-cols-4 gap-3">
-            {[2001, 1001, 2008, 1011, 1005, 2003, 2007, 1007].map((i) => (
+            {['meet00001', 'meet00002', 'ai00004', 'gdc00006', 'ai00016', 'ai00008', 'meet00007', 'ai00006'].map((i) => (
               <div
                 key={i}
                 className="aspect-[16/9] rounded-xl overflow-hidden"
               >
                 <img 
-                  src={`/events/${i}.jpg`} 
+                  src={`/images/events/${i}.jpg`} 
                   alt={`Activity photo ${i}`}
                   className="w-full h-full object-cover"
                 />

@@ -1,76 +1,110 @@
-import ResponsiveLayout from "./responsive-layout";
-import { CircleCheck, Users, Rocket, Lightbulb, Code, Globe } from "lucide-react";
+import { Heart, Rocket, Sparkles, Target, Users, MapPin, Calendar } from "lucide-react";
+import Image from "next/image";
 
 export default function CommunityFeatures() {
   const features = [
     {
-      icon: <Users className="w-6 h-6 text-purple-500" />,
-      title: "多元社区",
-      description: "汇聚产品、设计、开发、运营等各领域人才，共同创造",
+      icon: <Target className="w-6 h-6 text-primary" />,
+      title: "专注MVP",
+      description: "提供系统化方法论、知识库、开源工具和案例支持，7天完成MVP",
     },
     {
-      icon: <Rocket className="w-6 h-6 text-blue-500" />,
-      title: "快速迭代",
-      description: "一周一个主题，从创意到产品，快速验证想法",
+      icon: <Users className="w-6 h-6 text-primary" />,
+      title: "创造者圈子",
+      description: "开发者、创业者、产品、设计、运营、职场人跨界协作",
     },
     {
-      icon: <Lightbulb className="w-6 h-6 text-yellow-500" />,
-      title: "创意激发",
-      description: "头脑风暴、创意工作坊，激发无限可能",
+      icon: <MapPin className="w-6 h-6 text-primary" />,
+      title: "多城市覆盖",
+      description: "北京、上海、广州、深圳、杭州、清迈（持续扩展中...）",
     },
     {
-      icon: <Code className="w-6 h-6 text-green-500" />,
-      title: "技术支持",
-      description: "提供技术指导、资源共享，降低开发门槛",
-    },
-    {
-      icon: <CircleCheck className="w-6 h-6 text-red-500" />,
-      title: "项目落地",
-      description: "从概念到MVP，再到获取首批用户的全流程支持",
-    },
-    {
-      icon: <Globe className="w-6 h-6 text-orange-500" />,
-      title: "全球视野",
-      description: "接轨国际创新趋势，拓展全球市场机会",
+      icon: <Calendar className="w-6 h-6 text-primary" />,
+      title: "高频活动",
+      description: "AI共学工作坊、创造者交流会、迷你黑客松等，让创新常态化",
     },
   ];
 
   return (
-    <section className="py-12 md:py-16 lg:py-20">
-      <ResponsiveLayout>
-        <div className="px-4 md:px-8 lg:px-16 py-8 md:py-12 lg:py-16">
-          {/* Header */}
-          <div className="mb-8 md:mb-12 lg:mb-16">
-            <div className="inline-block bg-primary/10 text-primary rounded-full px-4 py-1 text-xs md:text-sm mb-4">
-              社区特色
-            </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-              打造创新生态，连接创造者与机会
-            </h2>
-          </div>
+    <section className="py-16 md:py-24 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-500/3 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-500/3 rounded-full blur-3xl" />
+      </div>
 
-          {/* Features grid - responsive layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {features.map((feature, index) => (
-              <div 
-                key={index} 
-                className="bg-background/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 transition-all duration-300 hover:shadow-md hover:border-primary/20"
-              >
-                <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-lg md:text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-sm md:text-base text-muted-foreground">{feature.description}</p>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        {/* Header */}
+        <div className="mb-8 md:mb-12">
+          <div className="inline-block bg-primary/10 text-primary rounded-full px-4 py-1 text-xs md:text-sm mb-4">
+            社区特色
+          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight">
+            社区核心特色
+          </h2>
+        </div>
+
+        {/* Features - responsive layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-12 md:gap-y-8 mb-10">
+          {features.map((feature, index) => (
+            <div key={index} className="flex">
+              <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg bg-primary/5 mr-3 md:mr-5">
+                {feature.icon}
               </div>
-            ))}
-          </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
 
-          {/* Bottom quote */}
-          <div className="mt-12 md:mt-16 text-center">
-            <p className="text-base md:text-lg lg:text-xl text-muted-foreground italic">
-              "我们不只是一个社区，更是一个创新的孵化器和加速器"
+        {/* Subtle divider */}
+        <div className="h-px w-full bg-border/30 my-8 md:my-6" />
+
+        {/* Vision and Mission */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-10">
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-4 inline-flex items-center">
+              <div className="w-2 h-2 rounded-full bg-purple-500 mr-3"></div>
+              愿景
+            </h3>
+            <p className="text-lg text-muted-foreground pl-5">
+              成为全球最有活力和温暖的AI产品创造者社区
+            </p>
+          </div>
+          
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-4 inline-flex items-center">
+              <div className="w-2 h-2 rounded-full bg-blue-500 mr-3"></div>
+              使命
+            </h3>
+            <p className="text-lg text-muted-foreground pl-5">
+              通过 AI 加速创意实现，助力千万创作者打造有价值、有意义、有趣的产品
             </p>
           </div>
         </div>
-      </ResponsiveLayout>
+
+        {/* Values */}
+        <div className="flex justify-center gap-8 md:gap-20 mt-8">
+          <div className="flex flex-col items-center">
+            <Heart className="w-6 h-6 text-primary mb-2" />
+            <span className="text-lg text-foreground/70">爱</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <Sparkles className="w-6 h-6 text-primary mb-2" />
+            <span className="text-lg text-foreground/70">自由</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <Rocket className="w-6 h-6 text-primary mb-2" />
+            <span className="text-lg text-foreground/70">创造</span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 } 

@@ -8,7 +8,7 @@ export default function ProjectShowcase() {
       name: "ShipAny",
       description: "一小时快速上线AI SaaS项目",
       details: "功能完善的 AI SaaS 开发框架，首发 4 小时收入破万刀，300+客户购买",
-      image: "/projects/shipany.jpg",
+      image: "/images/projects/shipany.jpg",
       founder: {
         name: "Idoubi",
         title: "2024 年第二期活动成员",
@@ -19,7 +19,7 @@ export default function ProjectShowcase() {
       name: "映壳",
       description: "灵动副屏手机壳",
       details: "获得百万级融资，基于墨水屏及NFC取电科技，用户可以在APP中随心更换壳体内容。自研软硬件，AI加持，玩法多样，现已在多个国家和地区上市",
-      image: "/projects/yingke.jpg",
+      image: "/images/projects/yingke.jpg",
       founder: {
         name: "文龙",
         title: "2024 年第五期活动成员",

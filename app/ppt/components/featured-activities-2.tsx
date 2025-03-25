@@ -72,13 +72,13 @@ export default function FeaturedActivities2() {
 
           {/* Activity photos - large photo gallery */}
           <div className="grid grid-cols-4 gap-3">
-            {[1002, 2002, 3005, 2004, 1004, 2005, 1006, 2006].map((i) => (
+            {['hack00001', 'hack00003', 'demo00001', 'demo00002', 'bar00004', 'demo00004', 'demo00003', 'gdc00007'].map((i) => (
               <div
                 key={i}
                 className="aspect-[16/9] rounded-xl overflow-hidden"
               >
                 <img 
-                  src={`/events/${i}.jpg`} 
+                  src={`/images/events/${i}.jpg`} 
                   alt={`Activity photo ${i}`}
                   className="w-full h-full object-cover"
                 />
