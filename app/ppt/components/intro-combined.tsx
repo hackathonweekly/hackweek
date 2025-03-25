@@ -56,10 +56,10 @@ export default function IntroCombined() {
           </div>
           
           {/* Footer */}
-          <div className="absolute bottom-8 flex items-center text-sm text-muted-foreground">
+          {/* <div className="absolute bottom-8 flex items-center text-sm text-muted-foreground">
             <div className="w-1.5 h-1.5 rounded-full bg-primary/30 mr-2" />
             <span>成立于 2024年5月，深圳</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </PPTPageLayout>

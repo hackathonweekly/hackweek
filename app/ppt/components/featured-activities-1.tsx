@@ -4,7 +4,7 @@ import { Rocket, Laptop } from "lucide-react";
 export default function FeaturedActivities1() {
   const activities = [
     {
-      category: "高频活动",
+      category: "每周活动",
       items: [
         {
           icon: Rocket,

@@ -4,7 +4,7 @@ import { Trophy, Users } from "lucide-react";
 export default function FeaturedActivities2() {
   const activities = [
     {
-      category: "深度共创",
+      category: "特色项目",
       items: [
         {
           icon: Users,
@@ -13,7 +13,7 @@ export default function FeaturedActivities2() {
         },
         {
           icon: Trophy,
-          title: "Demo Day",
+          title: "Demo Day AI酒馆",
           description: "展示最具潜力项目给投资人、媒体，让创意得到更多关注和支持",
         },
       ],

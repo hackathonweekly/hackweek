@@ -26,7 +26,7 @@ export default function Milestones() {
     {
       date: "2024.12",
       title: "生态共建",
-      description: "国内多地共同体验探索AI游戏、 3D打印、创新性游戏等多体活动形式",
+      description: "国内多地共同体验探索AI游戏、3D打印等活动形式，社群突破 5k人，",
     },
     {
       date: "2025.02",

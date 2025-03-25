@@ -6,7 +6,7 @@ export default function Contact() {
     {
       icon: Users,
       title: "参与活动",
-      description: "每周线下活动免费开放，扫码或链接报名",
+      description: "每周线上线下 AI 创作共学活动",
     },
     {
       icon: Code,
@@ -16,7 +16,7 @@ export default function Contact() {
     {
       icon: Handshake,
       title: "合作共建",
-      description: "商务合作邮件/电话/微信，联合办AI工坊或城市分部",
+      description: "联合办 AI 活动或城市分部",
     },
   ];
 
@@ -111,7 +111,7 @@ export default function Contact() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { type: "公众号", image: "/wechat_official_qr.jpg" },
-                { type: "小助手", image: "/wechat_qr.jpeg" }
+                { type: "小助手", image: "/images/summer.jpg" }
               ].map((item) => (
                 <div
                   key={item.type}

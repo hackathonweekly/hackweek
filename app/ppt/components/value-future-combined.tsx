@@ -7,7 +7,7 @@ export default function ValueFutureCombined() {
       icon: Gem,
       title: "投资机构",
       points: [
-        "获取高质量早期AI项目，寻找投资机会",
+        "获取高质量人才库、项目库，寻找投资机会",
         "把握AI创新趋势，捕捉产业新风口",
       ],
     },
@@ -15,16 +15,16 @@ export default function ValueFutureCombined() {
       icon: Factory,
       title: "企业合作",
       points: [
-        "七天快速验证产品场景，探索市场需求",
+        "推广相关服务产品，企业 AI 转型工作坊",
         "多元化品牌联合活动，促进社区共创",
       ],
     },
     {
       icon: Newspaper,
-      title: "媒体资源",
+      title: "社区媒体",
       points: [
-        "创新项目与成果优先，获得独家报道权",
         "联合策划主题活动，扩大社区影响力",
+        "优质项目早期沉淀，创新项目与成果优先报道",
       ],
     },
   ];

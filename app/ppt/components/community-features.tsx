@@ -5,8 +5,8 @@ export default function CommunityFeatures() {
   const features = [
     {
       icon: Target,
-      title: "专注MVP",
-      description: "提供系统化方法论、知识库、开源工具和案例支持，7天完成MVP",
+      title: "助力实现MVP",
+      description: "提供系统化方法论、线上线下工作坊、知识库、开源工具和案例支持",
     },
     {
       icon: Users,
@@ -20,7 +20,7 @@ export default function CommunityFeatures() {
     },
     {
       icon: Calendar,
-      title: "高频活动",
+      title: "每周活动",
       description: "AI共学工作坊、创造者交流会、迷你黑客松等，让创新常态化",
     },
   ];
