@@ -1,6 +1,6 @@
 import { members } from '@/lib/data';
 import { Metadata, ResolvingMetadata } from 'next';
-import ChristmasCard from '@/components/ChristmasCard';
+import ChristmasCard from '@/components/images/christmasCard';
 import { notFound } from 'next/navigation';
 
 type Props = {

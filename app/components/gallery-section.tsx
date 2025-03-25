@@ -5,12 +5,12 @@ import Image from "next/image";
 
 const galleryImages = {
   posters: Array.from({ length: 6 }, (_, i) => ({
-    src: `/posters/${i + 1}.jpg`,
+    src: `/images/posters/${i + 1}.jpg`,
     alt: `活动海报 ${i + 1}`,
     type: "poster"
   })),
   events: Array.from({ length: 6 }, (_, i) => ({
-    src: `/events/${i + 1}.jpg`,
+    src: `/images/events/${i + 1}.jpg`,
     alt: `活动照片 ${i + 1}`,
     type: "photo"
   }))
