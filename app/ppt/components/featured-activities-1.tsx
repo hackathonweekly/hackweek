@@ -71,23 +71,37 @@ export default function FeaturedActivities1() {
           </div>
 
           {/* Activity photos - grid layout like FeaturedActivities2 */}
-          <div className="grid grid-cols-4 gap-3">
-            {['meet00001', 'meet00002', 'ai00004', 'gdc00006', 'ai00016', 'ai00008', 'meet00007', 'ai00006'].map((i) => (
+          <div className="grid grid-cols-4 gap-6">
+            {[
+              { id: 'meet00001', caption: '手搓桌面机器人' },
+              { id: 'meet00002', caption: 'AI 创业者交流会' },
+              { id: 'ai00004', caption: 'GSC X AI 文创工作坊' },
+              { id: 'gdc00006', caption: 'GDC X AI 工作坊' },
+              { id: 'ai00016', caption: 'DeepSeek 共学活动' },
+              { id: 'ai00011', caption: 'Z·Pilot X AI 游戏' },
+              { id: 'ai00008', caption: '科创学院 X AI 3D 打印' },
+              { id: 'ai00018', caption: '清华创协 X 硬件共创' },
+            ].map((item) => (
               <div
-                key={i}
-                className="aspect-[16/9] rounded-xl overflow-hidden"
+                key={item.id}
+                className="flex flex-col gap-2"
               >
-                <img 
-                  src={`/images/events/${i}.jpg`} 
-                  alt={`Activity photo ${i}`}
-                  className="w-full h-full object-cover"
-                />
+                <div className="aspect-[16/9] rounded-xl overflow-hidden">
+                  <img 
+                    src={`/images/events/${item.id}.jpg`} 
+                    alt={item.caption}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-xs text-center text-muted-foreground">
+                  {item.caption}
+                </div>
               </div>
             ))}
           </div>
           
           {/* Caption */}
-          <div className="mt-4 text-center text-sm text-muted-foreground">
+          <div className="mt-6 text-center text-sm text-muted-foreground">
             创造者交流会与AI共学工作坊现场
           </div>
         </div>

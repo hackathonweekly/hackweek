@@ -71,23 +71,37 @@ export default function FeaturedActivities2() {
           </div>
 
           {/* Activity photos - large photo gallery */}
-          <div className="grid grid-cols-4 gap-3">
-            {['hack00001', 'hack00003', 'demo00001', 'demo00002', 'bar00004', 'demo00004', 'demo00003', 'gdc00007'].map((i) => (
+          <div className="grid grid-cols-4 gap-6">
+            {[
+              { id: 'hack00001', caption: '迷你黑客松' },
+              { id: 'gdc00007', caption: 'GDC全球开发者大会' },
+              { id: 'demo00001', caption: 'BaysWork X Demo Day' },
+              { id: 'bar00004', caption: 'All Day Club X AI 酒馆' },
+              { id: 'meet00005', caption: 'AI Cafe X 硬件产品交流' },
+              { id: 'hack00003', caption: '迷你黑客松' },
+              { id: 'ai00013', caption: '少数派 X Demo Day' },
+              { id: 'demo00002', caption: 'AI Cafe X Demo Day' },
+            ].map((item) => (
               <div
-                key={i}
-                className="aspect-[16/9] rounded-xl overflow-hidden"
+                key={item.id}
+                className="flex flex-col gap-2"
               >
-                <img 
-                  src={`/images/events/${i}.jpg`} 
-                  alt={`Activity photo ${i}`}
-                  className="w-full h-full object-cover"
-                />
+                <div className="aspect-[16/9] rounded-xl overflow-hidden">
+                  <img 
+                    src={`/images/events/${item.id}.jpg`} 
+                    alt={item.caption}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-xs text-center text-muted-foreground">
+                  {item.caption}
+                </div>
               </div>
             ))}
           </div>
           
           {/* Caption */}
-          <div className="mt-4 text-center text-sm text-muted-foreground">
+          <div className="mt-6 text-center text-sm text-muted-foreground">
             迷你黑客松与Demo Day活动现场
           </div>
         </div>
